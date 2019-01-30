@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html id="html" style="opacity: 1">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Picktuber</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="fonts/font.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="lib/slick/slick.css" />
+    <script src="lib/jquery-3.3.1.min.js"></script>
+    <script src="lib/slick/slick.min.js"></script>
+    <script src="lib/circle-progress.min.js"></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__top-area">
+            <div class="logo-container">
+                <h1><a href="#"><img class="logo-container__logo logo" src="img/logo_edit3.png" alt="픽튜버"></a></h1>
+                <div class="logo-container__text">
+                    <strong>당신의</strong><strong>유투버</strong>를 알려주세요
+                </div>
+            </div>
+            <form class="search">
+                <input class="search__text" type="text" placeholder="유투버를 검색하세요"><button class="search__submit icon-font icon-font--search"
+                    type="submit" value="">
+            </form>
+        </div>
+        <nav class="gnb">
+            <ul class="gnb__container">
+                <!--
+                -->
+                <li class="gnb__item gnb__item--point"><a href="#">PICK!<span class="gnb__item-desc">유투버들에게 평점을 매겨보아요</span></a></span></li>
+                <!--
+                -->
+                <li class="gnb__item gnb__item--point"><a href="#">픽톡</a></li>
+                <!--
+                -->
+                <li class="gnb__item"><a href="#">평점순위</a></li>
+                <!--
+                -->
+                <li class="gnb__item"><a href="#">최근PICK 살펴보기</a></li>
+                <!--
+                -->
+                <li class="gnb__item"><a href="#">유투버 공간</a></li>
+                <!--
+            -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="top-banner">
+        <ul class="slide">
+            <li class="slide__item slide1">
+                <div class="slide__content-wrapper">
+                    <div class="slide1__content">
+                        재밌는건 <strong>같이봐야</strong> 더 재밌는법
+                    </div>
+                </div>
+            </li>
+            <li class="slide__item slide2">
+                <div class="slide__content-wrapper">
+                    <div class="slide2__content">
+                        재능있지만 <strong>알려지지 않은 유투버</strong>를 알려주세요
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="wrap clearfix">
+        <div class="column1">
+            <section class="recent-pick clearfix">
+                <h2 class="recent-pick__title">따끈따끈한 PICK!</h2>
+                <article class="pick-card card">
+                    <div class="pick-card__img">
+                        <img src="https://via.placeholder.com/200x100">
+                    </div>
+                    <div class="pick-card__body">
+                        너무너무 좋아요 친절하고 욕도안하고 재밌게 진행 잘하시네요. 꼭한번 보세요!!!
+                    </div>
+                    <div class="pick-card__circle-area">
+                            <div class="pick-card__circle circle-component">
+                                    <div class="circle-component__circle" data-value="0.9">
+                                        <div class="circle-component__value"></div>
+                                    </div>
+                                    <div class="circle-component__title">
+                                        편집능력
+                                    </div>
+                                </div>
+                                <div class="pick-card__circle circle-component">
+                                    <div class="circle-component__circle" data-value="0.7">
+                                        <div class="circle-component__value"></div>
+                                    </div>
+                                    <div class="circle-component__title">
+                                        병맛
+                                    </div>
+                                </div>
+                                <div class="pick-card__circle circle-component">
+                                    <div class="circle-component__circle" data-value="0.5">
+                                        <div class="circle-component__value"></div>
+                                    </div>
+                                    <div class="circle-component__title">
+                                        친절함
+                                    </div>
+                                </div>
+                    </div>
+                    
+
+                </article>
+                <article class="pick-card card">
+
+                </article>
+            </section>
+
+        </div>
+        <div class="column2">
+            <h2 class="pick-talk__title">픽톡</h2>
+            <seciton class="pick-talk card">
+                a
+            </seciton>
+        </div>
+        <!-- <section class="width" -->
+    </div>
+
+
+    <script>
+        $(function () {
+            $('.slide').slick({
+                dots: true, // 네비게이션(아래의 점들) 보여주기
+                infinite: true, //루프되게
+                slidesToShow: 1, //한번에 보여주는 아이템의 개수
+                // slidesToScroll: 1, // 몇개단위로 페이지가 넘어가는지 설정
+                autoplay: true, //자동으로 넘어가게
+                autoplaySpeed: 3000, //넘어가는 속도 설정
+                // centerMode:false, //센터모드 - 좌우의 안보이는 아이템을 일부 보이게 해줌
+                // centerPadding: '40px' //센터모드시 좌우의 아이템을 얼마나 보이게 해줄지 설정
+            });
+
+
+            $('.circle-component__circle').each(function (index, elm) {
+                var $elm = $(elm);
+                var diameter = $elm.css("width").replace("px","");
+                var color = $elm.css("color")
+                var value = $elm.attr("data-value")||0;
+
+
+                $elm.circleProgress({
+                    value: value,
+                    size: diameter,
+                    fill: {
+                        color:color
+                    }
+                });
+
+                $elm.find('.circle-component__value').html(100*value);
+            })
+
+            $('#html').css("opacity", "1");
+        });
+    </script>
+</body>
+
+</html>
