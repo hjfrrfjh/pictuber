@@ -1,12 +1,13 @@
-function showCircle(duration){
+
+function showCircle(duration) {
     $('.circle-component__circle').each(function (index, elm) {
         var $elm = $(elm);
         var diameter = $elm.css("width").replace("px", "");
         var color = $elm.css("color")
         var value = $elm.attr("data-value") || 0;
-        
-        if(duration==undefined){
-            duration=1200;
+
+        if (duration == undefined) {
+            duration = 1200;
         }
         $elm.circleProgress({
             value: value,
@@ -14,14 +15,21 @@ function showCircle(duration){
             fill: {
                 color: color
             },
-            animation:{
-                duration:duration
+            animation: {
+                duration: duration
             }
         });
 
         $elm.find('.circle-component__value').html(100 * value);
     })
 
+    $('.gnb__item').mouseover(function () {
+        $(this).find(".gnb__item-underline").stop().animate({ width: "100%" }, 150, "swing");
+    }).mouseleave(function () {
+        $(this).find(".gnb__item-underline").stop().animate({ width: "0" }, 200, "swing");
+    });
+
     $('#html').css("opacity", "1");
 }
+
 
