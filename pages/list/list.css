@@ -1,0 +1,139 @@
+
+.title-area{
+    border-top:2px solid var(--base-color);
+    text-align:center;
+}
+
+.title__text{
+    font-size:2em;
+    padding:20px;
+    /* background-color:var(--base-color); */
+    display:inline-block;
+    /* background-color:var(--base-color); */
+    color:var(--black-color);
+
+}
+.list{
+    font-size:0;
+    text-align:center;
+}
+
+.filter{
+    /* font-size:1.2em; */
+    margin:20px 0;
+    margin-top:10px;
+}
+
+.filter__title{
+    margin:10px 0;
+    
+}
+.filter__item{
+    display:inline-block;
+    border:1px solid var(--light-grey);
+    padding:10px 20px;
+    border-radius: 10px;
+    color:var(--black-color);
+}
+
+.card{
+    width:280px;
+    height:350px;
+    font-size:1rem;
+    margin:10px;
+    display:inline-block;
+    text-align:left;
+}
+
+.card__body{
+    padding:20px;
+    padding-top:10px;
+}
+
+.card__title{
+    width:100%;
+    background-color:var(--base-color);
+    color:white;
+    padding:10px;
+}
+
+.card__tag-area{
+    margin-bottom:10px;
+}
+.card__tag{
+    font-size:0.9em;
+    border:1px solid var(--light-grey);
+    color:var(--black-color);
+    border-radius: 5px;
+    padding:3px 5px;
+    margin-left:5px;
+    display:inline-block;
+}
+
+.card__tag:first-child{
+    margin-left:0;
+}
+
+.card__img{
+    width:47%;
+    display:inline-block;
+    vertical-align: top;
+}
+
+.card__circle{
+    width:47%;
+    margin-left:6%;
+    display:inline-block;
+    vertical-align: top;
+}
+
+.circle-component{
+    color:var(--base-color);
+}
+
+.circle-component__circle{
+    width:70%;
+    margin-left:15%;
+    text-align:center;
+}
+.circle-component__value{
+    font-size:30px;
+}
+.circle-component__title{
+    font-size:0.9em;
+}
+
+
+.card__point-area{
+    margin-top:20px;
+}
+.card-point{
+    width:25%;
+    float:left;
+    text-align:center;
+}
+
+.card-point__value{
+    font-size:1.3em;
+    color:var(--base-color);
+}
+.card-point__name{
+    margin-top:5px;
+    font-size: 0.8em;
+}
+.card__button-area{
+    text-align:center;
+    margin-top:4px;
+    /* border-top:1px solid var(--light-grey); */
+}
+.card__button{
+    width:45%;
+    font-size:0.9em;
+    /* margin-top:10px; */
+    margin-top:20px;
+    /* padding-top:20px; */
+}
+
+.card__button:first-child{
+    margin-right:4%;
+}

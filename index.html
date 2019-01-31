@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Picktuber</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="common.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="fonts/font.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="lib/slick/slick.css" />
+    
     <script src="lib/jquery-3.3.1.min.js"></script>
     <script src="lib/slick/slick.min.js"></script>
     <script src="lib/circle-progress.min.js"></script>
+    <script src="common.js"></script>
 
 </head>
 
@@ -31,23 +34,11 @@
         </div>
         <nav class="gnb">
             <ul class="gnb__container">
-                <!--
-                -->
                 <li class="gnb__item gnb__item--point"><a href="#">PICK!<span class="gnb__item-desc">유투버들에게 평점을 매겨보아요</span></a></span></li>
-                <!--
-                -->
                 <li class="gnb__item gnb__item--point"><a href="#">픽톡</a></li>
-                <!--
-                -->
                 <li class="gnb__item"><a href="#">평점순위</a></li>
-                <!--
-                -->
                 <li class="gnb__item"><a href="#">최근PICK 살펴보기</a></li>
-                <!--
-                -->
                 <li class="gnb__item"><a href="#">유투버 공간</a></li>
-                <!--
-            -->
             </ul>
         </nav>
     </header>
@@ -74,8 +65,8 @@
     <div class="wrap clearfix">
         <div class="column1">
             <section class="recent-pick clearfix">
-                <h2 class="recent-pick__title">따끈따끈한 PICK!</h2>
-                <article class="pick-card card">
+                <h2 class="recent-pick__title"><i class="icon-font icon-font--face2"></i>따끈따끈한 PICK!</h2>
+                <article class="pick-card card-base-deco">
                     <div class="pick-card__body">
                         <div class="pick-card__title-area">
                             <h3 class="pick-card__title">
@@ -112,17 +103,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pick-card__text">
-                                역사를 용감하고 찾아다녀도, 것은 이상의 착목한는 사라지지 있음으로써 이것이다. 구하기 보이는....
+                        <div class="pick-card__text">역사를 용감하고 찾아다녀도, 것은 이상의 착목도, 것은 이상의 착목도, 것은 이상의 착목....
                         </div>
                         <div class="pick-card__button-area">
-                            <a href="#" class="button button--light">총점</a>
                             <a href="#" class="button button--light">프로필</a>
                             <a href="#" class="button button--light">채널</a>
                         </div>
                     </div>
                 </article>
-                <article class="pick-card card">
+                <article class="pick-card card-base-deco">
                     <div class="pick-card__body">
                         <div class="pick-card__title-area">
                             <h3 class="pick-card__title">
@@ -160,16 +149,15 @@
                             </div>
                         </div>
                         <div class="pick-card__text">
-                                청춘의 피고 어디 찾아 있으랴? 이것은 꾸며 이상은 청춘의 하였으며, 피어나기 아니다. 만물은 있는...
+                                청춘의 피고 어디 찾아 있으랴? 이것은 꾸며 이상은 청춘의 하였으며, 피어나기 아니다. 만물은...
                         </div>
                         <div class="pick-card__button-area">
-                            <a href="#" class="button button--light">총점</a>
                             <a href="#" class="button button--light">프로필</a>
                             <a href="#" class="button button--light">채널</a>
                         </div>
                     </div>
                 </article>
-                <article class="pick-card card">
+                <article class="pick-card card-base-deco">
                     <div class="pick-card__body">
                         <div class="pick-card__title-area">
                             <h3 class="pick-card__title">
@@ -210,13 +198,12 @@
                                 가치를 이상, 위하여, 곳으로 생의 바로 소담스러운 용감하고 따뜻한 것이다. 가진 너의 위하여...
                         </div>
                         <div class="pick-card__button-area">
-                            <a href="#" class="button button--light">총점</a>
                             <a href="#" class="button button--light">프로필</a>
                             <a href="#" class="button button--light">채널</a>
                         </div>
                     </div>
                 </article>
-                <article class="pick-card card">
+                <article class="pick-card card-base-deco">
                     <div class="pick-card__body">
                         <div class="pick-card__title-area">
                             <h3 class="pick-card__title">
@@ -254,10 +241,9 @@
                             </div>
                         </div>
                         <div class="pick-card__text">
-                                가치를 이상, 위하여, 곳으로 생의 바로 소담스러운 용감하고 따뜻한 것이다. 가진 너의 위하여 얼음...
+                                가치를 이상, 위하여, 곳으로 생의 바로 소담스러운 용감하고 따뜻한 것이다. 가진  얼음...
                         </div>
                         <div class="pick-card__button-area">
-                            <a href="#" class="button button--light">총점</a>
                             <a href="#" class="button button--light">프로필</a>
                             <a href="#" class="button button--light">채널</a>
                         </div>
@@ -269,8 +255,8 @@
         <div class="column2">
             
             <seciton class="pick-talk">
-                    <h2 class="pick-talk__title">픽톡</h2>
-                <div class="board card">
+                    <h2 class="pick-talk__title"><i class="icon-font icon-font--chat"></i>픽톡</h2>
+                <div class="board card-base-deco">
                     <div class="board__title">자유로운 이야기 공간입니다</div>
                     <ul class="board-items">
                         <li class="board-items-item clearfix">
@@ -331,7 +317,7 @@
                 </div>
             </seciton>
             <section class="youtuber-board">
-                <h2 class="youtuber-board__title">유투버 공간</h2>
+                <h2 class="youtuber-board__title"><i class="icon-font icon-font--face1"></i>유투버 공간</h2>
                 <div style="text-align:center">
                     <a href="#" class="button button--point" style="letter-spacing: -1px;">게시판 신청하러 가기</a>
                 </div>
@@ -369,24 +355,8 @@
                 // centerPadding: '40px' //센터모드시 좌우의 아이템을 얼마나 보이게 해줄지 설정
             });
 
-
-            $('.circle-component__circle').each(function (index, elm) {
-                var $elm = $(elm);
-                var diameter = $elm.css("width").replace("px", "");
-                var color = $elm.css("color")
-                var value = $elm.attr("data-value") || 0;
-
-
-                $elm.circleProgress({
-                    value: value,
-                    size: diameter,
-                    fill: {
-                        color: color
-                    }
-                });
-
-                $elm.find('.circle-component__value').html(100 * value);
-            })
+            showCircle();
+            
 
             $('#html').css("opacity", "1");
         });

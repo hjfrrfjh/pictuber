@@ -16,3 +16,18 @@
 .icon-font--search:before{
     content:'\e800'
 }
+
+.icon-font--chat:before{
+    content:'\f0e6'
+}
+
+.icon-font--face1:before{
+    content:'\e804'
+}
+
+.icon-font--face2:before{
+    content:'\e808'
+}
+
+
+

@@ -1,2 +1,5 @@
 
 .icon-search:before { content: '\e800'; } /* '' */
+.icon-emo-thumbsup:before { content: '\e804'; } /* '' */
+.icon-emo-coffee:before { content: '\e808'; } /* '' */
+.icon-chat-empty:before { content: '\f0e6'; } /* '' */

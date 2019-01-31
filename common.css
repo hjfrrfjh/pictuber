@@ -1,0 +1,411 @@
+@font-face { font-family: 'NanumSquareRound'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+*{
+    /* outline:1px dashed lightgreen; */
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    --base-color:#E44F3F;
+    --base-color-dark1:#801515;
+    --base-color-dark2:#550000;
+    --base-color-light1:#FE7567;
+    --base-color-light2:#FF9C92;
+    
+    --point-color:#36bf68;
+    --point-color-dark:#068F39;
+    --black-color:rgb(30,30,30);
+    --white-color:rgb(245,245,245);
+
+    --light-grey:rgb(223,223,223);
+    --lighter-grey:rgb(235,235,235);
+    --dark-grey:rgb(170,170,170);
+    /* outline:1px dashed lightgrey; */
+}
+
+ul{
+    list-style:none;
+}
+
+body{
+    font-family: 'NanumSquareRound';
+    color:var(--balck-color);
+    /* background-color:rgb(245,245,245); */
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+h1{
+    display:inline;
+}
+
+
+.clearfix:after{
+    content:'';
+    display:block;
+    clear:both;
+}
+
+.header{
+    background-color:white;
+}
+
+.header__top-area{
+    max-width:1200px;
+    margin:0 auto;
+    color:var(--black-color);
+    padding:20px 10px;
+}
+
+.logo-container{
+    display:inline-block;
+}
+
+.logo{
+    width:180px;
+    vertical-align: bottom;
+}
+
+.logo-container__text{
+    vertical-align: bottom;
+    /* padding-bottom:2px; */
+    margin-left:5px;
+    display:inline-block;
+}
+
+.logo-container__text strong:nth-child(1){
+    font-size:1.1em;
+    font-weight: normal;
+}
+
+.logo-container__text strong:nth-child(2){
+    margin-left:5px;
+    /* color:var(--base-color); */
+    border-bottom:2px solid var(--base-color);
+    padding-bottom:2px;
+    vertical-align: bottom;
+    font-size:1.4em;
+}
+
+.search{
+    display:inline-block;
+    margin-left:50px;
+}
+
+.search__text{
+    outline:none;
+    box-shadow:none;
+    border:none;
+    border: 1px solid var(--base-color-light2);
+    border-right:none;
+    height:40px;
+    padding:0 10px;
+    vertical-align: middle;
+}
+
+.search__submit{
+    border:none;
+    color:white;
+    height:40px;
+    width:40px;
+    font-size:1.5em;
+    background-color:var(--base-color-light1);
+    vertical-align: middle;
+}
+
+.gnb {
+    border-top:1px solid var(--light-grey);
+    text-align:center;
+    height:80px;
+}
+
+.gnb__container{
+    display:inline-block;
+    height:100%;
+}
+
+.gnb__container:before{
+    height:100%;
+    content:'';
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.gnb__item{
+    display:inline-block;
+    vertical-align: middle;
+    margin-left:60px;
+    letter-spacing: -1px;
+}
+
+.gnb__item:hover{
+    border-bottom:2px solid var(--base-color-light1);
+}
+
+.gnb__item:first-child{
+    margin-left:0;
+}
+
+.gnb__item-desc{
+    font-size:0.8rem;
+    display:block;
+}
+
+.gnb__item--point{
+    color:var(--base-color);
+    font-size:1.4em;
+    /* font-weight:bold; */
+}
+
+.footer{
+    margin-top:50px;
+    font-size:0.9em;
+    text-align:center;
+}
+
+.footer__link-area{
+    background-color:var(--lighter-grey);
+    padding:20px 0;
+    
+}
+
+.footer__body{
+    background-color:var(--base-color);
+    color:white;
+    padding:20px 0;
+}
+
+.footer__link{
+    padding:0 20px;
+    border-left: 1px solid darkgrey;
+}
+
+.footer__link:first-child{
+    border:none;
+}
+
+/* ---------------------------------------카드형태---------------------------------------*/
+.card-base-deco{
+    background-color:white;
+    border:1px solid var(--light-grey);
+    border-radius:5px;
+}
+/* ------------------------------------------------------------------------------*/
+
+
+/* ---------------------------------------게시판 미리보기---------------------------------------*/
+.board__title{
+    width:100%;
+    background-color:var(--base-color);
+    color:white;
+    padding:15px;
+}
+
+.board-items{
+    padding:10px;
+}
+
+.board-items-item{
+    padding:3px;
+    margin-top:5px;
+    font-size:0.9em;
+}
+
+.board-items-item:nth-child(2n){
+    background-color:var(--lighter-grey);
+    /* color:white; */
+}
+
+.board-items-item__date{
+    float:right;
+    width:30%;
+    text-align:right;
+}
+
+.board-items-item__title{
+    float:left;
+    width:70%;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+
+}
+/* ------------------------------------------------------------------------------*/
+
+
+/* ---------------------------------------원형 컴포넌트 스타일 ---------------------------------------*/
+.circle-component__circle{
+    width:100%;
+    position: relative;
+}
+.circle-component__circle canvas{
+    width:100%;
+}
+
+.circle-component__value{
+    position:absolute;
+    top:50%;
+    left:50%;
+    font-size:1.5vw;
+    transform:translate(-50%,-50%);
+}
+
+.circle-component__title{
+    text-align:center;
+    font-size:1em;
+
+}
+/* --------------------------------------- ---------------------------------------*/
+
+
+/* ---------------------------------------버튼 디자인 ---------------------------------------*/
+.button{
+    color:white;
+    background-color:var(--base-color);
+    padding:7px;
+    display:inline-block;
+    border-radius:5px;
+}
+
+.button--light{
+    border:1px solid var(--base-color-light2);
+    background-color:transparent;
+    color:var(--base-color);
+}
+
+.button--just-text{
+    background-color:transparent;
+    border:none;
+    color:var(--base-color);
+    font-size:1rem;
+}
+
+
+.button--point{
+    background-color:var(--point-color);
+    /* color:black; */
+    font-weight: bold;
+}
+
+.button:hover{
+    background-color:var(--base-color-dark1);
+}
+
+.button--light:hover{
+    color:white;
+    background-color:var(--base-color);
+    border:none;
+}
+
+.button--just-text:hover{
+    background-color:transparent;
+    border-bottom:5px solid var(--base-color);
+}
+
+.button--point:hover{
+    background-color:var(--point-color-dark);
+}
+/* ------------------------------------------------------------------------------*/
+
+
+
+
+/* ---------------------------------------슬라이드 디자인  ---------------------------------------*/
+.top-banner .slick-slide{
+   outline:none;
+}
+
+.top-banner .slick-prev,.slick-next{
+   position:absolute;
+   top:50%;
+   transform:translate(0,-50%);
+   z-index:1;
+   outline:none;
+   border:none;
+   background:none;
+   color:white;
+   font-size:0; /* 폰트 사이즈를 0으로 해서 prev, next텍스트를 안보이게 만들어준다 */
+   
+}
+
+/* 위치설정 */
+.top-banner .slick-prev{
+   left:10px;
+}
+
+.top-banner .slick-next{
+   right:10px;
+}
+
+/* 실제로 보여지는 버튼 형태*/
+.top-banner .slick-prev:after, .slick-next:after{
+   font-size:1.5rem;
+   /* border:1px solid white; */
+   border-radius:50%;
+   display:block;
+   width:50px;
+   height:50px;
+   line-height:50px;
+   cursor:pointer;
+   /* background-color:rgba(0,0,0,0.1); */
+   color:white;
+}
+
+/* 호버시 변경*/
+.top-banner .slick-prev:hover:after, .slick-next:hover:after{
+   background-color:rgba(255,255,255,0.4);
+}
+
+/* 버튼의 텍스트 */
+.top-banner .slick-prev:after{
+   content:'<';
+
+}
+
+.top-banner .slick-next:after{
+   content:'>';
+}
+
+/* 아래의 점들 을 담고있는 컨테이너*/
+.top-banner .slick-dots{
+   position:absolute;
+   bottom:10px;
+   left:50%;
+   transform:translate(-50%,0);
+   font-size:0;
+}
+
+.top-banner .slick-dots li{
+   list-style:none;
+   display:inline-block;
+   margin:0 3px; /* 점들간의 간격*/
+}
+
+.top-banner .slick-dots li button{
+   outline:none;
+   font-size:0; /*0으로 바꿔서 도트 숫자 안보이게*/
+   border:none;
+   background:none;
+   display:inline-block;
+   cursor:pointer;
+}
+
+/* 점들 디자인 */
+.top-banner .slick-dots li button:after{
+   content:'';
+   display:block;
+   height: 10px;
+   width: 10px;
+   border-radius: 50%;
+   background-color:var(--white-color);
+}
+
+.top-banner .slick-dots .slick-active button:after{
+    background-color:var(--base-color-light1);
+}
+/* --------------------------------------- ---------------------------------------*/
+
+.wrap{
+    max-width:1200px;
+    margin:0 auto;
+}
