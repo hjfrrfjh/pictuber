@@ -418,4 +418,21 @@ h1{
 .wrap{
     max-width:1200px;
     margin:0 auto;
+    padding:20px;
+    padding-top:0;
+}
+
+.sub-title__area{
+    border-top:2px solid var(--base-color);
+    text-align:left;
+}
+
+.sub-title__text{
+    font-size:2em;
+    padding:20px;
+    padding-bottom:0;
+    display:inline-block;
+    color:white;
+    margin-left:20px;
+    background-color:var(--base-color);
 }

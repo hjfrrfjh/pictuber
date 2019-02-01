@@ -2,46 +2,16 @@
 <html id="html" style="opacity: 1">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <?php include "head.php" ?>
     <title>Picktuber</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="common.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="fonts/font.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="lib/slick/slick.css" />
     
-    <script src="lib/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="lib/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
     <script src="lib/slick/slick.min.js"></script>
-    <script src="lib/circle-progress.min.js"></script>
-    <script src="common.js"></script>
-
 </head>
 
 <body>
-    <header class="header">
-        <div class="header__top-area">
-            <div class="logo-container">
-                <h1><a href="#"><img class="logo-container__logo logo" src="img/logo_edit3.png" alt="픽튜버"></a></h1>
-                <!-- <div class="logo-container__text">
-                    <strong>당신의</strong><strong>유투버</strong>를 알려주세요
-                </div> -->
-            </div>
-            <form class="search">
-                <input class="search__text" type="text" placeholder="유투버 검색"><button class="search__submit icon-font icon-font--search"
-                    type="submit" value="">
-            </form>
-        </div>
-        <nav class="gnb">
-            <ul class="gnb__container">
-                <li class="gnb__item gnb__item--point"><a href="#">PICK!<span class="gnb__item-desc">유투버들에게 평점을 매겨보아요</span></a></span><div class="gnb__item-underline"></div></li>
-                <li class="gnb__item gnb__item--point"><a href="#">픽톡</a><div class="gnb__item-underline"></div></li>
-                <li class="gnb__item"><a href="#">평점순위</a><div class="gnb__item-underline"></div></li>
-                <li class="gnb__item"><a href="#">최근PICK 살펴보기</a><div class="gnb__item-underline"></div></li>
-                <li class="gnb__item"><a href="#">유투버 공간</a><div class="gnb__item-underline"></div></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "header.php" ?>
 
     <div class="top-banner">
         <ul class="slide">
@@ -78,7 +48,7 @@
                         </div>
                         <div class="pick-card__circle-area">
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.9">
+                                <div class="circle-component__circle" data-value="90">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -87,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.7">
+                                <div class="circle-component__circle" data-value="70">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -95,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.5">
+                                <div class="circle-component__circle" data-value="50">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -123,7 +93,7 @@
                         </div>
                         <div class="pick-card__circle-area">
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.7">
+                                <div class="circle-component__circle" data-value="70">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -132,7 +102,7 @@
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.6">
+                                <div class="circle-component__circle" data-value="60">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -140,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.9">
+                                <div class="circle-component__circle" data-value="90">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -169,7 +139,7 @@
                         </div>
                         <div class="pick-card__circle-area">
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.2">
+                                <div class="circle-component__circle" data-value="20">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -178,7 +148,7 @@
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.4">
+                                <div class="circle-component__circle" data-value="40">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -186,7 +156,7 @@
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.9">
+                                <div class="circle-component__circle" data-value="90">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -215,7 +185,7 @@
                         </div>
                         <div class="pick-card__circle-area">
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.5">
+                                <div class="circle-component__circle" data-value="50">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -224,7 +194,7 @@
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.8">
+                                <div class="circle-component__circle" data-value="80">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -232,7 +202,7 @@
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="0.6">
+                                <div class="circle-component__circle" data-value="60">
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
@@ -254,7 +224,7 @@
         </div>
         <div class="column2">
             
-            <seciton class="pick-talk">
+            <section class="pick-talk">
                     <h2 class="pick-talk__title"><i class="icon-font icon-font--chat"></i>픽톡</h2>
                 <div class="board card-base-deco">
                     <div class="board__title">자유로운 이야기 공간입니다</div>
@@ -315,7 +285,7 @@
                         </li>
                     </ul>
                 </div>
-            </seciton>
+            </section>
             <section class="youtuber-board">
                 <h2 class="youtuber-board__title"><i class="icon-font icon-font--face1"></i>유투버 공간</h2>
                 <div style="text-align:center">
@@ -326,22 +296,10 @@
                 </div>
             </section>
         </div>
-        <!-- <section class="width" -->
     </div>
-    <footer class="footer">
-        <div class="footer__link-area">
-            <div class="wrap">
-                <a href="#" class="footer__link" onClick="alert('준비중입니다')">개인정보 취급 방침</a>
-                <a href="#" class="footer__link">운영 방침</a>
-            </div>
-        </div>
-        <div class="footer__body">
-            <div class="wrap">
-                Copyright kimhyojin. All rights reserved.<br>
-                kimhyojin87@gmail.com
-            </div>
-        </div>
-    </footer>
+
+    <?php include "footer.php" ?>
+
     <script>
         $(function () {
             $('.slide').slick({
@@ -355,8 +313,7 @@
                 // centerPadding: '40px' //센터모드시 좌우의 아이템을 얼마나 보이게 해줄지 설정
             });
 
-            showCircle();
-            
+            showCircle(2000);
 
             $('#html').css("opacity", "1");
         });
