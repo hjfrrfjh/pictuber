@@ -1,4 +1,5 @@
 <?php include "../../common.php" ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +15,7 @@
     <?php echo includeHelper("../../header.php");?>
     <?php $subTitle="PICK"; include '../../sub-title.php'; ?>
     <!-- /////////////////////////////////////////////////-->
-    <div class="wrap">
+    <div class="content">
         <div class="top clearfix">
             <ul class="filter">
                 <div class="filter__title">조건 검색</div>
@@ -30,58 +31,15 @@
             <a href="#" class="button button--point top__add-youtuber">유투버 등록하기</a>
         </div>
 
-        <ul class="list">
-            <?php for ($i = 1; $i < 30; $i++) { ?>
+        <ul id="list" class="list">
 
-            <li class="card-base-deco card">
-                <div class="card__wraper">
-                    <div class="card__title">
-                        재밌는 방송!
-                    </div>
-                    <div class="card__body">
-                        <div class="card__tag-area"><span class="card__tag">정보</span><span
-                                class="card__tag">먹방</span><span class="card__tag">게임</span>
-                        </div><img class="card__img" src="https://via.placeholder.com/80"><!--
-                        --><div class="card__circle">
-                            <div class="circle-component clearfix">
-                                <div class="circle-component__circle" data-value="80">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    편집능력
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card__point-area clearfix">
-                            <div class="card-point">
-                                <div class="card-point__value">50</div>
-                                <div class="card-point__name">유머</div>
-                            </div>
-                            <div class="card-point">
-                                <div class="card-point__value">50</div>
-                                <div class="card-point__name">소통</div>
-                            </div>
-                            <div class="card-point">
-                                <div class="card-point__value">50</div>
-                                <div class="card-point__name">비주얼</div>
-                            </div>
-                            <div class="card-point">
-                                <div class="card-point__value">50</div>
-                                <div class="card-point__name">재능</div>
-                            </div>
-                        </div>
-                        <div class="card__button-area">
-                            <a href="#" class="card__button button button--light">프로필</a>
-                            <a href="#" class="card__button button button--light">채널이동</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <?php 
-        } ?>
         </ul>
     </div>
+    <a href="#" id="more" class="more button">더보기</a>
+    <form id="form" method="post">
+        <input id="last_item" type="hidden" name="last_item" value="0">
+        <input id="no_more" type="hidden" name="no_more" value=false>
+    </form>
     <script>
 
     </script>
@@ -89,7 +47,32 @@
     <?php echo includeHelper("../../footer.php");?>
     <script>
     $(function() {
-        showCircle(0);
+        
+
+        var $listContainer = $("#list");
+
+        $(document.body).on("click",function (){
+            
+        });
+        
+        $("#more").on("click",function(ev){
+            ev.preventDefault();
+            $("#last_item").val(Number($("#last_item").val())+12);
+            getList();
+        });
+
+        function getList(){
+            $.ajax({
+                url:'list_ajax.php',
+                type:"post",
+                data:$("#form").serialize(),
+            }).done(function(data){
+                $listContainer.append(data);
+                showCircle(0);
+            })
+        }
+
+        getList();
     });
     </script>
 </body>

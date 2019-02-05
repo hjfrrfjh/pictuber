@@ -1,6 +1,7 @@
 
 <?php 
 
+
 // 공통 사용하는 문서의 src, href경로 변경
 function includeHelper($path){
        ob_start();

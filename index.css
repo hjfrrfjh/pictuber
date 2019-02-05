@@ -153,6 +153,22 @@
     display:block;
 }
 
+.pick-talk .board .cell{
+    font-size:0.9rem;
+    padding:6px;
+}
+
+.pick-talk .board .col1{
+    width:calc(100% - 80px);
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+.pick-talk .board .col2{
+    text-align:right;
+    width:80px;
+}
 .pick-talk__title{
     /* margin-bottom:6px; */
 }

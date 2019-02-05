@@ -223,68 +223,65 @@
 
         </div>
         <div class="column2">
-            
+        <h2 class="pick-talk__title"><i class="icon-font icon-font--chat"></i>픽톡</h2>
             <section class="pick-talk">
-                    <h2 class="pick-talk__title"><i class="icon-font icon-font--chat"></i>픽톡</h2>
-                <div class="board card-base-deco">
-                    <div class="board__title">자유로운 이야기 공간입니다</div>
-                    <ul class="board-items">
-                        <li class="board-items-item clearfix">
-                            <a href="#">
-                                <span class="board-items-item__title">국회는 선전포고, 국군의 외국에의 파견 또는 외국군...</span>
-                                <span class="board-items-item__date">19/01/31</span>
-                            </a>
-                        </li>
-                        <li class="board-items-item clearfix">
-                            <a href="#">
-                                <span class="board-items-item__title">법률안에 이의가 있을 때에는 대통령은 제1항의 기간...</span>
-                                <span class="board-items-item__date">19/01/31</span>
-                            </a>
-                        </li>
-                        <li class="board-items-item clearfix">
-                            <a href="#">
-                                <span class="board-items-item__title">의무교육은 무상으로 한다. 군인 또는 군무원이 아닌 ...</span>
-                                <span class="board-items-item__date">19/01/31</span>
-                            </a>
-                        </li>
-                        <li class="board-items-item clearfix">
-                            <a href="#">
-                                <span class="board-items-item__title">국회의원은 그 지위를 남용하여 국가·공공단체 또는 ...</span>
-                                <span class="board-items-item__date">19/01/31</span>
-                            </a>
-                        </li>
-                        <li class="board-items-item clearfix">
-                            <a href="#">
-                                <span class="board-items-item__title">국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요...</span>
-                                <span class="board-items-item__date">19/01/31</span>
-                            </a>
-                        </li>
-                        <li class="board-items-item clearfix">
-                            <a href="#">
-                                <span class="board-items-item__title">모든 국민은 법률이 정하는 바에 의하여 국가기관에 ...</span>
-                                <span class="board-items-item__date">19/01/31</span>
-                            </a>
-                        </li>
-                        <li class="board-items-item clearfix">
-                            <a href="#">
-                                <span class="board-items-item__title">모든 국민은 근로의 의무를 진다. 국가는 근로의 의무...</span>
-                                <span class="board-items-item__date">19/01/31</span>
-                            </a>
-                        </li>
-                        <li class="board-items-item clearfix">
-                            <a href="#">
-                                <span class="board-items-item__title">평화통일정책의 수립에 관한 대통령의 자문에 응하기 ...</span>
-                                <span class="board-items-item__date">19/01/31</span>
-                            </a>
-                        </li>
-                        <li class="board-items-item clearfix">
-                            <a href="#">
-                                <span class="board-items-item__title">국회의원은 국가이익을 우선하여 양심에 따라 직무를 ...</span>
-                                <span class="board-items-item__date">19/01/31</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="board">
+                    <li class="board__title">자유로운 이야기 공간입니다</li>
+                    <li class="board__item">
+                        <a href="#">
+                            <span class="cell col1">국회는 선전포고, 국군의 외국에의 파견 또는 외국군...</span>
+                            <span class="cell col2">19/01/31</span>
+                        </a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#">
+                            <span class="cell col1">법률안에 이의가 있을 때에는 대통령은 제1항의 기간...</span>
+                            <span class="cell col2">19/01/31</span>
+                        </a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#">
+                            <span class="cell col1">의무교육은 무상으로 한다. 군인 또는 군무원이 아닌 ...</span>
+                            <span class="cell col2">19/01/31</span>
+                        </a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#">
+                            <span class="cell col1">국회의원은 그 지위를 남용하여 국가·공공단체 또는 ...</span>
+                            <span class="cell col2">19/01/31</span>
+                        </a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#">
+                            <span class="cell col1">국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요...</span>
+                            <span class="cell col2">19/01/31</span>
+                        </a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#">
+                            <span class="cell col1">모든 국민은 법률이 정하는 바에 의하여 국가기관에 ...</span>
+                            <span class="cell col2">19/01/31</span>
+                        </a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#">
+                            <span class="cell col1">모든 국민은 근로의 의무를 진다. 국가는 근로의 의무...</span>
+                            <span class="cell col2">19/01/31</span>
+                        </a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#">
+                            <span class="cell col1">평화통일정책의 수립에 관한 대통령의 자문에 응하기 ...</span>
+                            <span class="cell col2">19/01/31</span>
+                        </a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#">
+                            <span class="cell col1">국회의원은 국가이익을 우선하여 양심에 따라 직무를 ...</span>
+                            <span class="cell col2">19/01/31</span>
+                        </a>
+                    </li>
+                </ul>
             </section>
             <section class="youtuber-board">
                 <h2 class="youtuber-board__title"><i class="icon-font icon-font--face1"></i>유투버 공간</h2>

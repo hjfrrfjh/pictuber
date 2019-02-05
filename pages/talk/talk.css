@@ -1,0 +1,48 @@
+
+.content{
+    font-size:0;
+}
+
+.now * {
+    /* outline:1px solid red; */
+}
+.now{
+    max-width:1000px;
+    margin: 0 auto;
+    margin-top:50px;   
+}
+
+.now .col1{
+    width:50px;
+    text-align: center;
+}
+
+.now .col2{
+    width:calc(100% - 350px);
+    padding:0 10px;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+
+.now .col3{
+    width:50px;
+    text-align:center;
+}
+
+.now .col4{
+    width:50px;
+    text-align:center;
+}
+
+.now .col5{
+    width:100px;
+    text-align: center;
+}
+
+.now .col6{
+    width:100px;
+    text-align: center;
+}
+

@@ -1,4 +1,7 @@
 
+.content{
+    padding:0;
+}
 .list{
     font-size:0;
     text-align:center;
@@ -37,6 +40,7 @@
     font-size:1.2em;
     padding:15px 20px;
 }
+
 .card{
     width:280px;
     height:350px;
@@ -54,14 +58,16 @@
 .card__title{
     width:100%;
     background-color:var(--base-color);
+    border-radius:5px 5px 0px 0px;
     color:white;
     padding:10px;
 }
 
 .card__tag-area{
     margin-bottom:10px;
-
+    height:25px;
 }
+
 .card__tag{
     font-size:0.9em;
     border:1px solid var(--light-grey);
@@ -98,17 +104,19 @@
     margin-left:15%;
     text-align:center;
 }
+
 .circle-component__value{
     font-size:30px;
 }
+
 .circle-component__title{
     font-size:0.9em;
 }
 
-
 .card__point-area{
     margin-top:20px;
 }
+
 .card-point{
     width:25%;
     float:left;
@@ -119,23 +127,37 @@
     font-size:1.3em;
     color:var(--base-color);
 }
+
 .card-point__name{
     margin-top:5px;
     font-size: 0.8em;
 }
+
 .card__button-area{
     text-align:center;
     margin-top:4px;
-    /* border-top:1px solid var(--light-grey); */
 }
 .card__button{
     width:45%;
     font-size:0.9em;
-    /* margin-top:10px; */
     margin-top:20px;
-    /* padding-top:20px; */
 }
 
 .card__button:first-child{
     margin-right:4%;
+}
+
+.more{
+    width:150px;
+    margin:0 auto;
+    margin-top: 30px;
+    display: block;
+    text-align: center;
+    font-size:1.2rem;
+    box-sizing: border-box;
+}
+
+.more--hidden{
+
+    display: none;
 }

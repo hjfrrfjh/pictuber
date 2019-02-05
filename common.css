@@ -22,7 +22,7 @@
     /* outline:1px dashed lightgrey; */
 }
 
-ul{
+ul, li{
     list-style:none;
 }
 
@@ -169,6 +169,11 @@ h1{
     /* font-weight:bold; */
 }
 
+.content{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+}
 .footer{
     margin-top:50px;
     font-size:0.9em;
@@ -205,40 +210,102 @@ h1{
 /* ------------------------------------------------------------------------------*/
 
 
-/* ---------------------------------------게시판 미리보기---------------------------------------*/
+/* ---------------------------------------게시판---------------------------------------*/
+
+.board{
+    border:1px solid var(--light-grey);
+    border-radius:5px;
+}
+
+.board .cell{
+    font-size:1rem;
+    display:inline-block;
+    padding:3px 0;
+    vertical-align: middle;
+    font-size:1rem;
+}
+
 .board__title{
     width:100%;
     background-color:var(--base-color);
+    border-radius:5px 5px 0px 0px;
     color:white;
     padding:15px;
 }
 
-.board-items{
-    padding:10px;
+.board__item{
+    border-bottom:1px solid var(--light-grey);
+    font-size:0;
 }
 
-.board-items-item{
-    padding:3px;
-    margin-top:5px;
-    font-size:0.9em;
-}
 
-.board-items-item:nth-child(2n){
+.board__item:nth-child(2n){
     background-color:var(--lighter-grey);
-    /* color:white; */
 }
 
-.board-items-item__date{
-    float:right;
-    width:30%;
-    text-align:right;
+.board__item:last-child{
+    border-bottom:none;
 }
 
-.board-items-item__title{
-    float:left;
-    width:70%;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+.board__header{
+    background-color:var(--base-color);
+    color:white;
+    border-radius:5px 5px 0px 0px;
+}
 
+.board__header .cell{
+    text-align:center;
+}
+
+.board__bottom{
+    font-size:1rem;
+    position:relative;
+}
+
+.board__buttons{
+    position: absolute;
+    top:0;
+    right:10px;
+}
+
+.board__buttons .button{
+    /* display: inline-block; */
+    text-align: center;
+    width:150px;
+}
+
+.board__control-page{
+    font-size:1.2rem;
+    text-align:center;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+
+.board__page-num{
+    border:1px solid var(--light-grey);
+    display: inline-block;
+    width:25px;
+    height:25px;
+}
+
+.board__search-control{
+    height:30px;
+    text-align: center;
+}
+
+.board__search-text{
+    height:100%;
+    display: inline-block;
+    vertical-align: middle;
+    width: 250px;
+    padding-left: 5px;
+}
+.board__search-submit{
+    display: inline-block;
+    vertical-align: middle;
+    border:none;
+    height:100%;
 }
 /* ------------------------------------------------------------------------------*/
 
@@ -248,6 +315,7 @@ h1{
     width:100%;
     position: relative;
 }
+
 .circle-component__circle canvas{
     width:100%;
 }
@@ -263,7 +331,6 @@ h1{
 .circle-component__title{
     text-align:center;
     font-size:1em;
-
 }
 /* --------------------------------------- ---------------------------------------*/
 
@@ -275,6 +342,7 @@ h1{
     padding:7px;
     display:inline-block;
     border-radius:5px;
+    border:none;
 }
 
 .button--light{
@@ -418,7 +486,7 @@ h1{
 .wrap{
     max-width:1200px;
     margin:0 auto;
-    padding:20px;
+    /* padding:20px; */
     padding-top:0;
 }
 

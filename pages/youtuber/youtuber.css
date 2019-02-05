@@ -1,5 +1,7 @@
 
-
+.profile{
+    padding:0 15px;
+}
 .profile__name{
     font-size:2em;
     text-align:center;
@@ -20,11 +22,12 @@
     padding:0 50px;
 }
 
+.profile canvas{
+    width:100%;
+}
 .profile .circle-component{
     width:20%;
     float:left;
-    /* margin-left:2%; */
-    /* padding:25px; */
 }
 
 .profile .circle-component__circle{
@@ -33,7 +36,7 @@
 }
 
 .profile .circle-component__value{
-    font-size: 1.8em;
+    font-size: 2vw;
 }
 
 .profile .circle-component__title{
@@ -43,13 +46,37 @@
 
 .profile__bottom{
     line-height:30px;
-    max-width:900px;
-    /* margin:0 auto; */
-    margin-left:20px;
-    margin-top:20px;
+    margin-top:40px;
     /* outline:1px solid red; */
+    font-size:0;
 }
 
+.profile__info-area{
+    display:inline-block;
+    vertical-align: middle;
+    width:75%;
+    font-size:1rem;
+    padding-right:20px;
+    border-right:1px solid var(--light-grey);
+}
+
+.profile__button-area{
+    display:inline-block;
+    vertical-align: middle;
+    padding-left:20px;
+    width:25%;
+    font-size:1rem;
+    letter-spacing: -1px;
+}
+
+.profile__button{
+    display:block;
+    text-align:center;
+}
+
+.profile__button:first-child{
+    margin-bottom:20px;
+}
 .profile__info{
     vertical-align: middle;
 }
@@ -66,7 +93,6 @@
 }
 .profile__detail{
     margin-top:20px;
-    font-size:0.9em;
 }
 
 .tag{
@@ -187,8 +213,8 @@
      top:50%;
      left:50%;
      transform:translate(-50%,-50%);
-     /* z-index:50; */
  }
+
 .point__item-graph{
     position:absolute;
     height:60%;
@@ -197,8 +223,8 @@
     top:50%;
     transform:translate(0,-50%);
     background-color:var(--base-color-light1);
-    box-shadow:1px 1px 2px rgba(0,0,0,0.1);
-    /* border:1px solid grey; */
+    border-right:2px solid var(--base-color-dark1);
+    border-radius:3px;
 }
 
 

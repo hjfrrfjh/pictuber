@@ -14,7 +14,7 @@
     <?php echo includeHelper("../../header.php");?>
     <!-- /////////////////////////////////////////////////-->
     <?php $subTitle="Youtuber"; include "../../sub-title.php" ?>
-    <div class="wrap">
+    <div class="content">
 
         <div class="profile clearfix">
             <h3 class="profile__name">
@@ -82,12 +82,18 @@
             </div>
 
             <div class="profile__bottom">
-                <ul class="profile__info">
-                    <li class="profile__info-item">채널 주소 - aaise.youtube.com/asidasem</li>
-                    <li class="profile__info-item">팬까페 - aaa/care.naver.com</li>
-                    <li class="profile__info-item">나이 - 20세 중반으로 추정</li> 
-                </ul>
-                <p class="profile__detail">그들의 일월과 천자만홍이 끝까지 길지 것이다. 못하다 우리 뭇 놀이 끓는 얼음에 이상 것이다. 능히 싸인 공자는 평화스러운 주는 듣는다. 황금시대의 동력은 것은 인생을 이성은 이상은 있음으로써 그리하였는가? 몸이 이상을 우리는 없으면 없으면, 곳이 피고, 철환하였는가? 그들의 얼마나 가진 피에 것이다.</p>
+                <div class="profile__info-area clearfix">
+                    <ul class="profile__info">
+                        <li class="profile__info-item">채널 주소 - aaise.youtube.com/asidasem</li>
+                        <li class="profile__info-item">팬까페 - aaa/care.naver.com</li>
+                        <li class="profile__info-item">나이 - 20세 중반으로 추정</li> 
+                    </ul>
+                    <p class="profile__detail">그들의 일월과 천자만홍이 끝까지 길지 것이다. 못하다 우리 뭇 놀이 끓는 얼음에 이상 것이다. 능히 싸인 공자는 평화스러운 주는 듣는다. 황금시대의 동력은 것은 인생을 이성은 이상은 있음으로써 그리하였는가? 몸이 이상을 우리는 없으면 없으면, 곳이 피고, 철환하였는가? 그들의 얼마나 가진 피에 것이다.</p>
+                </div>
+                <div class="profile__button-area">
+                    <a href="review.php" class="profile__button button button--point">평점 주기</a>
+                    <a href="#" class="profile__button button">정보 수정 요청</a>
+                </div>
             </div>
         </div>
         <section class="pick">
