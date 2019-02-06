@@ -289,6 +289,12 @@ h1{
     height:25px;
 }
 
+.board__page-num--active{
+    font-size: 1.5rem;
+    color: var(--base-color);
+}
+
+
 .board__search-control{
     height:30px;
     text-align: center;
@@ -315,7 +321,6 @@ h1{
     width:100%;
     position: relative;
 }
-
 .circle-component__circle canvas{
     width:100%;
 }
