@@ -227,5 +227,14 @@
     border-radius:3px;
 }
 
+.more{
+    font-size:1.2rem;
+    margin-top: 50px;
+    text-align: center;
+    display: block;
+    width: 100px;
+    margin:0 auto;
+    /* display: none; */
+}
 
  

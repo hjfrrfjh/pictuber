@@ -1,11 +1,118 @@
+.inside{
+    margin-top:30px;
+}
+.inside__title-area{
+    font-size:1.2rem;
+    background-color:var(--base-color);
+    color:white;
+    padding:10px 20px;
+    border-radius: 5px 5px 0 0;
+}
 
-.content{
+.inside__title{
+    float:left;
+}
+
+.inside__title:before{
+    content :'제목 : ';
+    display: inline-block;
+}
+
+.inside__author{
+    float:right;
+}
+
+.inside__author:before{
+    content :'글쓴이 : ';
+    display: inline-block;
+}
+
+.inside__recommend{
+    font-size:1.2rem;
+    float:left;
+    background-color:var(--point-color);
+    color:white;
+    padding: 10px 20px;
+}
+
+.inside__recommend:before{
+    content:'추천 : ';
+    display: inline-block;
+}
+
+.inside__hit{
+    float:left;
+    padding:10px 20px;
+}
+
+.inside__hit:before{
+    content:'조회수 : ';
+    display: inline-block;
+}
+
+.inside__date{
+    float:right;
+    padding:10px 20px;
+}
+
+.inside__date:before{
+    content:'글쓴날짜 : ';
+    display: inline-block;
+}
+
+.inside__content{
+    padding:30px;
+    line-height:1.8rem;
+}
+
+.inside__comment-area{
+    padding:30px;
+    padding-top:0;
+}
+
+.comment{
+    display: inline-block;
+}
+
+.comment__item{
     font-size:0;
+    margin-top:20px;
 }
 
-.now * {
-    /* outline:1px solid red; */
+.comment__item:first-child{
+    margin-top:0;
 }
+
+.comment__item-author{
+    font-size: 1rem;
+    padding: 20px;
+    display: inline-block;
+    background-color: var(--base-color);
+    color:white;
+    vertical-align: top;
+    border-radius: 0 0 10px 0;
+}
+
+.comment__item-author:after{
+    content:' 님의 코멘트';
+    display: inline-block;
+    
+}
+
+
+
+.comment__item-body{
+    display: inline-block;
+    font-size: 1rem;
+    vertical-align: middle;
+    padding: 20px;
+}
+
+.comment__item-date{
+    text-align: right;
+    margin-top:10px;
+}
+
 .now{
     max-width:1000px;
     margin: 0 auto;

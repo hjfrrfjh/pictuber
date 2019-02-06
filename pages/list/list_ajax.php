@@ -2,29 +2,42 @@
 include "../../db_conn.php";
 
 ob_start();
+
 $lastItem = $_POST['last_item'];
+$where = $_POST['where'];
+
+$sql = "select * from view_youtuber_list";
 
 
-$result = mysqli_query($conn,"select * from view_youtuber_info limit 12 offset $lastItem");
+if("" != trim($where)){//조건 있을때
+    $sql = $sql." ".$where;
+}
+
+$sql = $sql." limit 12 offset $lastItem";
+
+$result = mysqli_query($conn, $sql);
 
 function cmp($a, $b)
 {
     return $a['point'] < $b['point'];
 }
 
-while($row = mysqli_fetch_assoc($result)){
-    // echo $row['tags'];
-    $list = array(
-        array('name'=>'정보', 'point'=>$row['point1']),
-        array('name'=>'유머', 'point'=>$row['point2']),
-        array('name'=>'비주얼', 'point'=>$row['point3']),
-        array('name'=>'재능', 'point'=>$row['point4']),
-        array('name'=>'소통', 'point'=>$row['point5'])
-    );
+if($result){
+    
+    while($row = mysqli_fetch_assoc($result)){
+        $list = array(   
+            array('name'=>'정보', 'point'=>$row['point1']),
+            array('name'=>'유머', 'point'=>$row['point2']),
+            array('name'=>'비주얼', 'point'=>$row['point3']),
+            array('name'=>'재능', 'point'=>$row['point4']),
+            array('name'=>'소통', 'point'=>$row['point5'])
+        );
 
-    usort($list,"cmp");
+        
+        usort($list,"cmp");
 
-    $tags = explode(",",$row['tags']);
+        $tags = explode(",",$row['tags']);
+        
 ?>
 <li class="card-base-deco card">
     <div class="card__wraper">
@@ -58,28 +71,28 @@ while($row = mysqli_fetch_assoc($result)){
 
             </div>
             <div class="card__button-area">
-                <a href="../youtuber/youtuber.php" class="card__button button button--light">프로필</a>
+                <a href="../youtuber/youtuber.php?id=<?php echo $row['youtuber_id']?>" class="card__button button button--light">프로필</a>
                 <a href="#" class="card__button button button--light">채널이동</a>
             </div>
         </div>
     </div>
 </li>
+
 <?php 
+        $html = ob_get_contents();
+        if (ob_get_contents()) ob_end_clean();
+        echo $html;
+    }
 
-$html = ob_get_contents();
-if (ob_get_contents()) ob_end_clean();
-echo $html;
+    // if(mysqli_num_rows($result)<12){
+    //     echo "
+    //     <script> $('.more').addClass('more--hidden');</script>
+    //     ";
+    // }else {
+    //     echo "
+    //     <script> $('.more').removeClass('more--hidden');</script>
+    //     ";
+    // }
 }
-
-
-if(mysqli_num_rows($result)<12){
-    echo "
-    <script> $('.more').addClass('more--hidden');</script>
-    ";
-}else {
-    echo "
-    <script> $('.more').removeClass('more--hidden');</script>
-    ";
-}
-
+mysqli_close($conn);
 ?>

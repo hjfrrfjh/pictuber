@@ -36,189 +36,81 @@
         <div class="column1">
             <section class="recent-pick clearfix">
                 <h2 class="recent-pick__title"><i class="icon-font icon-font--face2"></i>따끈따끈한 PICK!</h2>
+                <?php 
+                 include 'db_conn.php';
+                 $sql = "select * from view_latest_review LIMIT 4";
+                 $result = mysqli_query($conn,$sql);
+                 
+                 function cmp($a, $b)
+                {
+                    return $a['point'] < $b['point'];
+                }
+
+                 if($result){
+                    while($row = mysqli_fetch_assoc($result)){
+                        
+                        $youtuber_name = $row["youtuber_name"];
+                        $youtuber_id = $row["youtuber_id"];
+                        $user_name = $row["user_name"];
+                        
+                        $list = array(
+                            array('name'=>'정보', 'point'=>$row['point1']),
+                            array('name'=>'유머', 'point'=>$row['point2']),
+                            array('name'=>'비주얼', 'point'=>$row['point3']),
+                            array('name'=>'재능', 'point'=>$row['point4']),
+                            array('name'=>'소통', 'point'=>$row['point5'])
+                        );
+                        usort($list,"cmp");
+                ?>
                 <article class="pick-card card-base-deco">
                     <div class="pick-card__body">
                         <div class="pick-card__title-area">
                             <h3 class="pick-card__title">
-                                효진튜브 - 음악
+                                <?php echo $youtuber_name ?>
                             </h3>
                             <div class="pick-card__picker">
-                                <a href="#" style="text-decoration: underline;">youtuama</a>
+                                <a href="#" style="text-decoration: underline;"><?php echo $user_name ?></a>
                             </div>
                         </div>
                         <div class="pick-card__circle-area">
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="90">
+                                <div class="circle-component__circle" data-value=<?php echo $list[0]['point']?> >
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
-                                    편집능력
-
+                                    <?php echo $list[0]['name'] ?>
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="70">
+                                <div class="circle-component__circle" data-value=<?php echo $list[1]['point']?>>
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
-                                    병맛
+                                <?php echo $list[1]['name'] ?>
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="50">
+                                <div class="circle-component__circle" data-value=<?php echo $list[2]['point']?>>
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
-                                    친절함
+                                <?php echo $list[2]['name'] ?>
                                 </div>
                             </div>
                         </div>
                         <div class="pick-card__text">역사를 용감하고 찾아다녀도, 것은 이상의 착목도, 것은 이상의 착목도, 것은 이상의 착목....
                         </div>
                         <div class="pick-card__button-area">
-                            <a href="#" class="button button--light">프로필</a>
+                            <a href="pages/youtuber/youtuber.php?id=<?php echo $youtuber_id ?>" class="button button--light">프로필</a>
                             <a href="#" class="button button--light">채널</a>
                         </div>
                     </div>
-                </article>
-                <article class="pick-card card-base-deco">
-                    <div class="pick-card__body">
-                        <div class="pick-card__title-area">
-                            <h3 class="pick-card__title">
-                                대도서관 - 게임
-                            </h3>
-                            <div class="pick-card__picker">
-                                <a href="#" style="text-decoration: underline;">youtuama</a>
-                            </div>
-                        </div>
-                        <div class="pick-card__circle-area">
-                            <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="70">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    편집능력
-
-                                </div>
-                            </div>
-                            <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="60">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    병맛
-                                </div>
-                            </div>
-                            <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="90">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    친절함
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pick-card__text">
-                                청춘의 피고 어디 찾아 있으랴? 이것은 꾸며 이상은 청춘의 하였으며, 피어나기 아니다. 만물은...
-                        </div>
-                        <div class="pick-card__button-area">
-                            <a href="#" class="button button--light">프로필</a>
-                            <a href="#" class="button button--light">채널</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="pick-card card-base-deco">
-                    <div class="pick-card__body">
-                        <div class="pick-card__title-area">
-                            <h3 class="pick-card__title">
-                                노매드 - 개그
-                            </h3>
-                            <div class="pick-card__picker">
-                                <a href="#" style="text-decoration: underline;">youtuama</a>
-                            </div>
-                        </div>
-                        <div class="pick-card__circle-area">
-                            <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="20">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    편집능력
-
-                                </div>
-                            </div>
-                            <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="40">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    병맛
-                                </div>
-                            </div>
-                            <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="90">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    친절함
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pick-card__text">
-                                가치를 이상, 위하여, 곳으로 생의 바로 소담스러운 용감하고 따뜻한 것이다. 가진 너의 위하여...
-                        </div>
-                        <div class="pick-card__button-area">
-                            <a href="#" class="button button--light">프로필</a>
-                            <a href="#" class="button button--light">채널</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="pick-card card-base-deco">
-                    <div class="pick-card__body">
-                        <div class="pick-card__title-area">
-                            <h3 class="pick-card__title">
-                                고양이천국 - 일상
-                            </h3>
-                            <div class="pick-card__picker">
-                                <a href="#" style="text-decoration: underline;">youtuama</a>
-                            </div>
-                        </div>
-                        <div class="pick-card__circle-area">
-                            <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="50">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    편집능력
-
-                                </div>
-                            </div>
-                            <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="80">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    병맛
-                                </div>
-                            </div>
-                            <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value="60">
-                                    <div class="circle-component__value"></div>
-                                </div>
-                                <div class="circle-component__title">
-                                    친절함
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pick-card__text">
-                                가치를 이상, 위하여, 곳으로 생의 바로 소담스러운 용감하고 따뜻한 것이다. 가진  얼음...
-                        </div>
-                        <div class="pick-card__button-area">
-                            <a href="#" class="button button--light">프로필</a>
-                            <a href="#" class="button button--light">채널</a>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                <?php
+                    }
+                }
+                 mysqli_close($conn);
+                ?>
             </section>
 
         </div>

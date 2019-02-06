@@ -18,7 +18,7 @@ function includeHelper($path){
        $replacements[1]= 'href="../../';
        
        return preg_replace($patterns,$replacements, $includeText);
-
 }
+
 
 ?>
