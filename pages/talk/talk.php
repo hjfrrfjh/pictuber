@@ -15,10 +15,22 @@
     <?php $subTitle="PickTalk"; include "../../sub-title.php" ?>
     <!-- /////////////////////////////////////////////////-->
     <?php include "../../db_conn.php" ?>
+
+    <?php
+            $search = $_GET['search'];
+            $offset = $_GET['offset'];
+            $id = $_GET['id'];
+    ?>
     <div class="content clearfix">
-        <?php 
+        <?php
+
+
+             $search_where="";
+            if(isset($_GET['search'])){
+                $search_where = " where subject like '%".$_GET['search']."%'";
+            }
+            
             if(isset($_GET['id'])){
-                $id = $_GET['id'];
                 $sql = "select * from view_board_talk_content where id=$id;";
                 $result = mysqli_query($conn, $sql);
                 if($result&&mysqli_num_rows($result)!=0){
@@ -92,7 +104,7 @@
                     }
                     ?>
                 </ul>
-            </div>
+
 
         </section>
 
@@ -112,8 +124,8 @@
                 <?php 
                 
                 $scale = 20;
-                $offset = isset($_GET['offset'])?$_GET['offset']:0;
-                $sql = "select * from view_board_talk_list limit $scale offset ".($offset*$scale);
+                $sql = "select * from view_board_talk_list".$search_where." limit $scale offset ".($offset*$scale);
+  
                 $result = mysqli_query($conn, $sql);
 
                 if($result){
@@ -125,9 +137,12 @@
                         $hit = $row['hit'];
                         $username = $row['username'];
                         $write_time = $row['write_time'];
+
+
+                        $link="talk.php?offset=$offset&id=$id".(isset($_GET['search'])?"&search=".$_GET['search']:'');
                 ?>
                 <li class="board__item">
-                    <a href="talk.php?offset=<?php echo $offset ?>&id=<?php echo $id ?>">
+                    <a href=<?php echo $link ?>>
                     <div class="cell col1"><?php echo $recommend ?></div>
                     <div class="cell col2"><?php echo $subject ?></div>
                     <div class="cell col3"><?php echo $comment_count ?></div>
@@ -149,14 +164,20 @@
                     <span class="board__page-num">
                         <</span>
                             <?php 
-                        $result = mysqli_query($conn,"select count(*) as count from board_talk");
+                        $result = mysqli_query($conn,"select count(*) as count from board_talk".$search_where);
                         
                         if($result){
                             $pageCount = ceil(mysqli_fetch_assoc($result)['count']/20);
                             
                             for($i=0;$i<$pageCount;$i++){
                                 $active=$i==$offset?" board__page-num--active":'';
-                                echo "<a href='talk.php?offset=".$i."' class='board__page-num".$active."'>".($i+1)."</a>";
+                                $link = "talk.php?offset=".$i;
+                                
+                                if(isset($_GET['search'])){
+                                    $link = $link."&search=".$_GET['search']."'";
+                                }
+                                
+                                echo "<a href='$link' class='board__page-num".$active."'>".($i+1)."</a>";
                             }
                         }
 
@@ -166,10 +187,17 @@
                             <span class="board__page-num">>
                     </span>
                 </div>
-                <form class="board__search-control">
-                    <input class="board__search-text" type="text" placeholder="검색어 입력">
+                <form class="board__search-control" method="GET" action="talk.php">
+                    <input class="board__search-text" type="text" placeholder="검색어 입력" name="search">
                     <button class="board__search-submit button" type="submit" value="검색하기">검색</button>
+                    <?php 
+                        if(isset($search)){
+                            echo "<a href='talk.php' class='button'>전체보기</a>";
+                        }
+                    ?>
+                    
                 </form>
+                    
             </div>
 
 

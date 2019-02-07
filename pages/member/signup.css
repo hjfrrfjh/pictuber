@@ -1,0 +1,25 @@
+.desc{
+    text-align: center;
+    font-size:1.2rem;
+}
+.content .button{
+    display: block;
+    max-width:300px;
+    margin:0 auto;
+    text-align: center;
+    margin-top:20px;
+    font-size:1.2rem;
+    padding:30px;
+}
+
+.naver{
+    background-color: #3EC729;
+}
+
+.naver:hover{
+    background-color: rgb(50, 156, 33);
+}
+
+.google{
+    background-color:#EC432E;
+}

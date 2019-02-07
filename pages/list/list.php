@@ -18,8 +18,14 @@
     <div class="content">
         <div class="top clearfix">
             <ul class="filter">
+                <?php 
+                    if(isset($_GET['search'])){
+                        $search = $_GET['search'];
+                        echo "<div>검색어 :  <a href='#' class='filter__item filter__item--active'>$search</a></div>";
+                    }
+                ?>
+               
                 <div class="filter__title">인기 태그</div>
-                
                 <?php 
                     include "../../db_conn.php";
                     $sql = "select * from view_top_tag;";
@@ -61,6 +67,28 @@
 
         function getList(options){
             var options = typeof options !== 'undefined' ?  options : {append:false};
+            /////////////////////////where 절 생성
+            $items = $(".filter__item--active");
+
+            if($items.length==0) {
+                $("#where").val("");
+                $("#last_item").val("0");
+            }else{
+                var where = "where";
+
+                for(var i=0;i<$items.length;i++){
+                    if(i>0){
+                        where = where + " or";
+                    }
+                    var searchText = $($items.get(i)).html();
+                    where = where + ' tags like "%'+searchText+'%"';
+                }
+
+                $("#where").val(where);
+                $("#last_item").val(0);
+            }
+
+            ///////////////////////
             $.ajax({
                 url:'list_ajax.php',
                 type:"post",
@@ -82,35 +110,23 @@
         }
 
         $(".filter__item").each(function(index){
-            var text = $(this).html();
+            var text = $(this).text();
             var $elm = $(this);
             
 
             $(this).on("click",function (ev){
+                console.log("clicked");
                 ev.preventDefault();
-                $elm.toggleClass("filter__item--active");
                 
-                $items = $(".filter__item--active");
-
-                if($items.length==0) {
-                    $("#where").val("");
-                    $("#last_item").val("0");
-                    getList();
-                    return;
+                if($elm.hasClass("filter__item--active")){
+                    $elm.removeClass("filter__item--active")
+                }else{
+                    $elm.addClass("filter__item--active")
                 }
-                
-                var where = "where";
-
-                for(var i=0;i<$items.length;i++){
-                    if(i>0){
-                        where = where + " and";
-                    }
-                    where = where + ' tags like "%'+$($items.get(i)).html()+'%"';
-                }
-
-                $("#where").val(where);
-                $("#last_item").val(0);
+                // console.log('hi');
+                // $elm.toggleClass("filter__item--active");
                 getList();
+                
             });
         });
 

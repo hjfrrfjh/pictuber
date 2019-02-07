@@ -509,3 +509,8 @@ h1{
     margin-left:20px;
     background-color:var(--base-color);
 }
+
+
+.elipsis{
+    overflow:hidden;
+}

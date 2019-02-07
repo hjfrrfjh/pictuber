@@ -122,8 +122,10 @@
 
 .pick-card__text{
     margin-top:20px;
-    line-height:170%;
+    line-height:2em;
 }
+
+
 
 .pick-card__button-area{
     padding-top:30px;
@@ -200,3 +202,4 @@
     font-size:1.5em;
     
 }
+

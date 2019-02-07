@@ -12,10 +12,12 @@ function includeHelper($path){
        $patterns = array();
        $patterns[0] = '#src="#';
        $patterns[1] = '#href="#';
+       $patterns[2] = '#action="#';
        
        $replacements = array();
        $replacements[0]= 'src="../../';
        $replacements[1]= 'href="../../';
+       $replacements[2]= 'action="../../';
        
        return preg_replace($patterns,$replacements, $includeText);
 }

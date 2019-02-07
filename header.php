@@ -6,8 +6,8 @@
                 <strong>당신의</strong><strong>유투버</strong>를 알려주세요
             </div> -->
         </div>
-        <form class="search">
-            <input class="search__text" type="text" placeholder="유투버 검색"><button class="search__submit icon-font icon-font--search"
+        <form class="search" action="pages/list/list.php" method="GET">
+            <input class="search__text" type="text" name="search" placeholder="유투버 검색"><button class="search__submit icon-font icon-font--search"
                 type="submit" value="">
         </form>
     </div>

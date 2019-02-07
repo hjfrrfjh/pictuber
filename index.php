@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" media="screen" href="lib/slick/slick.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
     <script src="lib/slick/slick.min.js"></script>
+    <script src="lib/ellipsis.min.js"></script>
+
+
 </head>
 
 <body>
@@ -44,6 +47,8 @@
                  function cmp($a, $b)
                 {
                     return $a['point'] < $b['point'];
+
+
                 }
 
                  if($result){
@@ -52,7 +57,8 @@
                         $youtuber_name = $row["youtuber_name"];
                         $youtuber_id = $row["youtuber_id"];
                         $user_name = $row["user_name"];
-                        
+                        $detail = $row["detail"];
+
                         $list = array(
                             array('name'=>'정보', 'point'=>$row['point1']),
                             array('name'=>'유머', 'point'=>$row['point2']),
@@ -98,8 +104,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pick-card__text">역사를 용감하고 찾아다녀도, 것은 이상의 착목도, 것은 이상의 착목도, 것은 이상의 착목....
-                        </div>
+                        <p class="pick-card__text clamp"><?php echo $detail ?></p>
+                        
                         <div class="pick-card__button-area">
                             <a href="pages/youtuber/youtuber.php?id=<?php echo $youtuber_id ?>" class="button button--light">프로필</a>
                             <a href="#" class="button button--light">채널</a>
@@ -109,7 +115,7 @@
                 <?php
                     }
                 }
-                 mysqli_close($conn);
+                 
                 ?>
             </section>
 
@@ -119,60 +125,29 @@
             <section class="pick-talk">
                 <ul class="board">
                     <li class="board__title">자유로운 이야기 공간입니다</li>
+                    <?php 
+                        $sql = "select * from board_talk order by id desc LIMIT 9";
+                        $result = mysqli_query($conn, $sql);
+                        
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $id = $row['id'];
+                            $subject = $row['subject'];
+                            $write_time = $row['write_time'];
+                            $write_time = date("y/m/d", strtotime($write_time));
+                        
+                    ?>
                     <li class="board__item">
-                        <a href="#">
-                            <span class="cell col1">국회는 선전포고, 국군의 외국에의 파견 또는 외국군...</span>
-                            <span class="cell col2">19/01/31</span>
+                        <a href="pages/talk/talk.php?id=<?php echo $id?>">
+                            <span class="cell col1"><?php echo $subject ?></span>
+                            <span class="cell col2"><?php echo $write_time ?></span>
                         </a>
                     </li>
-                    <li class="board__item">
-                        <a href="#">
-                            <span class="cell col1">법률안에 이의가 있을 때에는 대통령은 제1항의 기간...</span>
-                            <span class="cell col2">19/01/31</span>
-                        </a>
-                    </li>
-                    <li class="board__item">
-                        <a href="#">
-                            <span class="cell col1">의무교육은 무상으로 한다. 군인 또는 군무원이 아닌 ...</span>
-                            <span class="cell col2">19/01/31</span>
-                        </a>
-                    </li>
-                    <li class="board__item">
-                        <a href="#">
-                            <span class="cell col1">국회의원은 그 지위를 남용하여 국가·공공단체 또는 ...</span>
-                            <span class="cell col2">19/01/31</span>
-                        </a>
-                    </li>
-                    <li class="board__item">
-                        <a href="#">
-                            <span class="cell col1">국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요...</span>
-                            <span class="cell col2">19/01/31</span>
-                        </a>
-                    </li>
-                    <li class="board__item">
-                        <a href="#">
-                            <span class="cell col1">모든 국민은 법률이 정하는 바에 의하여 국가기관에 ...</span>
-                            <span class="cell col2">19/01/31</span>
-                        </a>
-                    </li>
-                    <li class="board__item">
-                        <a href="#">
-                            <span class="cell col1">모든 국민은 근로의 의무를 진다. 국가는 근로의 의무...</span>
-                            <span class="cell col2">19/01/31</span>
-                        </a>
-                    </li>
-                    <li class="board__item">
-                        <a href="#">
-                            <span class="cell col1">평화통일정책의 수립에 관한 대통령의 자문에 응하기 ...</span>
-                            <span class="cell col2">19/01/31</span>
-                        </a>
-                    </li>
-                    <li class="board__item">
-                        <a href="#">
-                            <span class="cell col1">국회의원은 국가이익을 우선하여 양심에 따라 직무를 ...</span>
-                            <span class="cell col2">19/01/31</span>
-                        </a>
-                    </li>
+                    <?php
+                    }
+                    mysqli_close($conn);
+                     ?>
+
                 </ul>
             </section>
             <section class="youtuber-board">
@@ -203,6 +178,19 @@
             });
 
             showCircle(2000);
+
+
+
+            $(".elipsis").each(function(){
+                var containerHeight = $(this).height();
+                var pHeight = $(this).find("p").height();
+                if(containerHeight<pHeight){
+                    find
+                    console.log($(this).text().replace(/(?!(<[^>]*>))\W*\s(\S)*$/, '...'));
+                }
+            });
+            
+            Ellipsis(); //두줄 이상 텍스트 제거
 
             $('#html').css("opacity", "1");
         });
