@@ -1,9 +1,8 @@
-<?php include "../../common.php" ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <?php echo includeHelper("../../head.php"); ?>
+    <?php include "../../head.php"; ?>
 
     <title>Picktuber</title>
     <link rel="stylesheet" type="text/css" media="screen" href="talk.css" />
@@ -11,7 +10,7 @@
 </head>
 
 <body>
-    <?php echo includeHelper("../../header.php");?>
+    <?php include "../../header.php";?>
     <?php $subTitle="PickTalk"; include "../../sub-title.php" ?>
     <!-- /////////////////////////////////////////////////-->
     <?php include "../../db_conn.php" ?>

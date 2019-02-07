@@ -1,10 +1,9 @@
-<?php include "../../common.php" ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <?php echo includeHelper("../../head.php"); ?>
+    <?php include "../../head.php" ?>
 
     <title>Picktuber</title>
     <link rel="stylesheet" type="text/css" media="screen" href="list.css" />
@@ -12,7 +11,7 @@
 </head>
 
 <body>
-    <?php echo includeHelper("../../header.php");?>
+    <?php include "../../header.php" ;?>
     <?php $subTitle="PICK"; include '../../sub-title.php'; ?>
     <!-- /////////////////////////////////////////////////-->
     <div class="content">
@@ -53,7 +52,7 @@
 
     </script>
     <!-- ///////////////////////////////////////////// -->
-    <?php echo includeHelper("../../footer.php");?>
+    <?php "../../footer.php";?>
     <script>
     $(function() {
         var $listContainer = $("#list");

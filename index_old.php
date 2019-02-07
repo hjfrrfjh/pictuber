@@ -1,3 +1,4 @@
+<?php declare(strict_types=1) ?>
 <!DOCTYPE html>
 <html id="html" style="opacity: 1">
 
@@ -13,7 +14,6 @@
 <body>
     <?php include "header.php"?>
 
-    <?php include "index_model.php" ?>
     <div class="top-banner">
         <ul class="slide">
             <li class="slide__item slide1">
@@ -37,58 +37,84 @@
         <div class="column1">
             <section class="recent-pick clearfix">
                 <h2 class="recent-pick__title"><i class="icon-font icon-font--face2"></i>따끈따끈한 PICK!</h2>
-                <!-- PHP출력  -->
                 <?php 
-                $results = $model->getLastestPick();
+                 include 'db_conn.php';
+                 $sql = "select * from view_latest_review LIMIT 4";
+                 $result = mysqli_query($conn,$sql);
+                 
+                 function cmp($a, $b)
+                {
+                    return $a['point'] < $b['point'];
 
-                foreach($results as $result){
+
+                }
+
+                 if($result){
+                    while($row = mysqli_fetch_assoc($result)){
+                        
+                        $youtuber_name = $row["youtuber_name"];
+                        $youtuber_id = $row["youtuber_id"];
+                        $user_name = $row["user_name"];
+                        $detail = $row["detail"];
+
+                        $list = array(
+                            array('name'=>'정보', 'point'=>$row['point1']),
+                            array('name'=>'유머', 'point'=>$row['point2']),
+                            array('name'=>'비주얼', 'point'=>$row['point3']),
+                            array('name'=>'재능', 'point'=>$row['point4']),
+                            array('name'=>'소통', 'point'=>$row['point5'])
+                        );
+                        usort($list,"cmp");
                 ?>
                 <article class="pick-card card-base-deco">
                     <div class="pick-card__body">
                         <div class="pick-card__title-area">
                             <h3 class="pick-card__title">
-                                <?php echo $result->youtuber_name ?>
+                                <?php echo $youtuber_name ?>
                             </h3>
                             <div class="pick-card__picker">
-                                <a href="#" style="text-decoration: underline;"><?php echo $result->user_name ?></a>
+                                <a href="#" style="text-decoration: underline;"><?php echo $user_name ?></a>
                             </div>
                         </div>
                         <div class="pick-card__circle-area">
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value=<?php echo $result->points[0]['point']?> >
+                                <div class="circle-component__circle" data-value=<?php echo $list[0]['point']?> >
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
-                                    <?php echo $result->points[0]['name'] ?>
+                                    <?php echo $list[0]['name'] ?>
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value=<?php echo $result->points[1]['point']?>>
+                                <div class="circle-component__circle" data-value=<?php echo $list[1]['point']?>>
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
-                                <?php echo $result->points[1]['name'] ?>
+                                <?php echo $list[1]['name'] ?>
                                 </div>
                             </div>
                             <div class="pick-card__circle circle-component">
-                                <div class="circle-component__circle" data-value=<?php echo $result->points[2]['point']?>>
+                                <div class="circle-component__circle" data-value=<?php echo $list[2]['point']?>>
                                     <div class="circle-component__value"></div>
                                 </div>
                                 <div class="circle-component__title">
-                                <?php echo $result->points[2]['name'] ?>
+                                <?php echo $list[2]['name'] ?>
                                 </div>
                             </div>
                         </div>
-                        <p class="pick-card__text clamp"><?php echo  $result->detail ?></p>
+                        <p class="pick-card__text clamp"><?php echo $detail ?></p>
                         
                         <div class="pick-card__button-area">
-                            <a href="pages/youtuber/youtuber.php?id=<?php echo $result->youtuber_id ?>" class="button button--light">프로필</a>
+                            <a href="pages/youtuber/youtuber.php?id=<?php echo $youtuber_id ?>" class="button button--light">프로필</a>
                             <a href="#" class="button button--light">채널</a>
                         </div>
                     </div>
                     </article>
-                    <?php } ?>
-                    <!--  -->
+                <?php
+                    }
+                }
+                 
+                ?>
             </section>
 
         </div>
@@ -97,21 +123,28 @@
             <section class="pick-talk">
                 <ul class="board">
                     <li class="board__title">자유로운 이야기 공간입니다</li>
-                    <!-- PHP출력 -->
                     <?php 
-                    $results = $model->getLatestTalk();
-                    foreach($results as $result){
+                        $sql = "select * from board_talk order by id desc LIMIT 9";
+                        $result = mysqli_query($conn, $sql);
+                        
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $id = $row['id'];
+                            $subject = $row['subject'];
+                            $write_time = $row['write_time'];
+                            $write_time = date("y/m/d", strtotime($write_time));
+                        
                     ?>
                     <li class="board__item">
-                        <a href="pages/talk/talk.php?id=<?php echo $result->id?>">
-                            <span class="cell col1"><?php echo $result->subject ?></span>
-                            <span class="cell col2"><?php echo $result->write_time ?></span>
+                        <a href="pages/talk/talk.php?id=<?php echo $id?>">
+                            <span class="cell col1"><?php echo $subject ?></span>
+                            <span class="cell col2"><?php echo $write_time ?></span>
                         </a>
                     </li>
                     <?php
                     }
+                    mysqli_close($conn);
                      ?>
-                     <!--  -->
 
                 </ul>
             </section>
@@ -144,6 +177,17 @@
 
             showCircle(2000);
 
+
+
+            $(".elipsis").each(function(){
+                var containerHeight = $(this).height();
+                var pHeight = $(this).find("p").height();
+                if(containerHeight<pHeight){
+                    find
+                    console.log($(this).text().replace(/(?!(<[^>]*>))\W*\s(\S)*$/, '...'));
+                }
+            });
+            
             Ellipsis(); //두줄 이상 텍스트 제거
 
             $('#html').css("opacity", "1");
