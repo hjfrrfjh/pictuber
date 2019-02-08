@@ -13,7 +13,9 @@
 <body>
     <?php include "header.php"?>
 
-    <?php include "index_model.php" ?>
+    <?php 
+    include "index_model.php";
+    ?>
     <div class="top-banner">
         <ul class="slide">
             <li class="slide__item slide1">
@@ -128,7 +130,6 @@
     </div>
 
     <?php include "footer.php" ?>
-
     <script>
         $(function () {
             $('.slide').slick({

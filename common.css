@@ -21,7 +21,10 @@
     --dark-grey:rgb(170,170,170);
     /* outline:1px dashed lightgrey; */
 }
-
+html { 
+    /* 스크롤바 여부에따라 레이아웃 움직이는 문제 해결 */
+    margin-left: calc(100vw - 100%); 
+}
 ul, li{
     list-style:none;
 }

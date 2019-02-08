@@ -3,7 +3,7 @@
     padding:0;
 }
 .list{
-    font-size:0;
+    /* font-size:0; */
     text-align:center;
 }
 
@@ -18,35 +18,80 @@
     vertical-align:bottom;
 }
 
-.filter__title{
-    margin:10px 0;
+.filter__title, .search__title{
+    /* margin:10px 0; */
+    /* display: block; */
+    margin-right:10px;
+    font-size:1.2rem;
+    letter-spacing: -2px;
+    display: inline-block;
 }
-.filter__item{
+
+.filter__title:after, .search__title:after{
+    content:':';
+    margin-left:5px;
+    display: inline-block;
+}
+
+.search__desc{
+    color:var(--base-color);
+}
+.filter__group{
+    margin-top:10px;
+}
+
+/* 인기검색어 */
+.filter__group:first-child{
+
+}
+
+.filter__item, .search__item{
     display:inline-block;
     border:1px solid var(--light-grey);
-    padding:10px 20px;
-    border-radius: 10px;
+    padding:8px 20px;
     margin-top:10px;
+    border-radius: 10px;
     margin-right:10px;
+    letter-spacing: -1px;
     color:var(--black-color);
 }
 
-.filter__item:hover{
+.filter__item:hover, .search__item:hover{
     background-color:var(--light-grey);
 }
 
-.filter__item--active{
+.filter__item--active, .search__item--active{
     background-color:var(--base-color);
     color:white;
 }
 
-.filter__item--active:hover{
+.filter__item--active:hover, .search__item--active:hover{
     background-color:var(--base-color-dark1);
     color:white;
 }
 
 
+.order{
+    margin-top:20px;
+}
+.order__title{
+    color:var(--base-color);
+    font-size:1.3rem;
+    margin-right: 10px;
+    display: inline-block;
+}
 
+.order__item{
+    display: inline-block;
+    border:1px solid var(--light-grey);
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.order__item--active{
+    background-color:var(--base-color);
+    color:white;
+}
 .top__add-youtuber{
     display:inline-block;
     vertical-align:middle;
@@ -177,4 +222,10 @@
 .more--hidden{
 
     display: none;
+}
+
+.nothing{
+    font-size:2rem;
+    margin:100px auto;
+    text-align: center;
 }

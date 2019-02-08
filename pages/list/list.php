@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -14,123 +13,214 @@
     <?php include "../../header.php" ;?>
     <?php $subTitle="PICK"; include '../../sub-title.php'; ?>
     <!-- /////////////////////////////////////////////////-->
+    <?php include 'list_model.php' ?>
+    <?php 
+        $search = $_GET['search'];
+    ?>
     <div class="content">
         <div class="top clearfix">
-            <ul class="filter">
+            <div class="filter">
+                <div class="filter__group">
                 <?php 
                     if(isset($_GET['search'])){
-                        $search = $_GET['search'];
-                        echo "<div>검색어 :  <a href='#' class='filter__item filter__item--active'>$search</a></div>";
+                        echo "<div class='search__title'>검색어</div><a href='#' class='search__item search__item--active'>$search</a> <span class='search__desc'><- 클릭시 <strong>검색해제</strong>가 가능합니다!</span>";
                     }
                 ?>
-               
-                <div class="filter__title">인기 태그</div>
-                <?php 
-                    include "../../db_conn.php";
-                    $sql = "select * from view_top_tag;";
-                    $result = mysqli_query($conn,$sql);
-
-                    while($row=mysqli_fetch_assoc($result)){
-                        echo '<a href="#" class="filter__item">',$row['tag'],'</a>';
+                </div>
+                <div class="filter__group">
+                    <div class="filter__title">주요 태그</div><a href="#" class="filter__item">게임</a><a href="#" class="filter__item">요리</a><a href="#" class="filter__item">리뷰</a><a href="#" class="filter__item">음악</a><a href="#" class="filter__item">창업</a><a href="#" class="filter__item">여행</a>
+                </div>
+                <div class="filter__group">
+                    <div class="filter__title">인기 태그</div>
+                    <?php 
+                    $result = $model->getTopTags();
+                    foreach($result as $data){
+                        echo '<a href="#" class="filter__item">',$data->tag,'</a>';
                     }
                 ?>
-            </ul>
+                </div>
+                <div class ="order">
+                <div class="order__title">
+                    정렬 -
+                </div>
+                <a href="#" class="order__item">정보</a>
+                <a href="#" class="order__item">비주얼</a>
+                <a href="#" class="order__item">재능</a>
+                <a href="#" class="order__item">유머</a>
+                <a href="#" class="order__item">소통</a>
+            </div>
+            </div>
             <a href="#" class="button button--point top__add-youtuber">유투버 등록하기</a>
+
         </div>
+        
 
-        <ul id="list" class="list">
-
-        </ul>
+        <ul id="list" class="list"></ul>
     </div>
+    <div id="nothing" class="nothing">해당하는 유투버가 없습니다. ㅠ.ㅠ</div>
     <a href="#" id="more" class="more button">더보기</a>
-    <form id="form" method="post">
-        <input id="last_item" type="hidden" name="last_item" value="0">
-        <input id="no_more" type="hidden" name="no_more" value=false>
-        <input id="where" type="hidden" name="where">
-    </form>
     <script>
 
     </script>
     <!-- ///////////////////////////////////////////// -->
-    <?php "../../footer.php";?>
+    <?php include "../../footer.php";?>
     <script>
     $(function() {
-        var $listContainer = $("#list");
-        var reviewCount = 0;
+        // var $listContainer = $("#list");
+        // var reviewCount = 0;
 
-        $("#more").on("click",function(ev){
-            ev.preventDefault();
-            $("#last_item").val(Number($("#last_item").val())+12);
-            getList({append:true});
-        });
 
-        function getList(options){
-            var options = typeof options !== 'undefined' ?  options : {append:false};
-            /////////////////////////where 절 생성
-            $items = $(".filter__item--active");
 
-            if($items.length==0) {
-                $("#where").val("");
-                $("#last_item").val("0");
-            }else{
-                var where = "where";
+        // function getList(options){
+        //     var options = typeof options !== 'undefined' ?  options : {append:false};
+        //     /////////////////////////where 절 생성
+        //     $items = $(".filter__item--active");
 
-                for(var i=0;i<$items.length;i++){
-                    if(i>0){
-                        where = where + " or";
-                    }
-                    var searchText = $($items.get(i)).html();
-                    where = where + ' tags like "%'+searchText+'%"';
-                }
+        //     if($items.length==0) {
+        //         $("#where").val("");
+        //         $("#last_item").val("0");
+        //     }else{
+        //         var where = "where";
 
-                $("#where").val(where);
-                $("#last_item").val(0);
+        //         for(var i=0;i<$items.length;i++){
+        //             if(i>0){
+        //                 where = where + " or";
+        //             }
+        //             var searchText = $($items.get(i)).html();
+        //             where = where + ' tags like "%'+searchText+'%"';
+        //         }
+
+        //         $("#where").val(where);
+        //         $("#last_item").val(0);
+        //     }
+
+        //     ///////////////////////
+        //     $.ajax({
+        //         url:'list_ajax.php',
+        //         type:"post",
+        //         data:$("#form").serialize(),
+        //     }).done(function(data){
+        //         if(options.append){
+        //             $listContainer.append(data);    
+        //         }else{
+        //             $listContainer.html(data);    
+        //         }
+        //         showCircle(0);
+
+        //         if($(".card").length==reviewCount){
+        //             $("#more").css("display","none");
+        //         }else{
+        //             reviewCount = $(".card").length;
+        //         }
+        //     })
+        // }
+
+
+
+        let $listContainer = $("#list");
+        let offset=0;
+        function getList(append) {
+            
+            
+            $activeTags = $(".filter__item--active");
+            
+            let tags = [];
+            $activeTags.each(function(index){
+                tags.push($(this).text());
+            })
+
+            let search ="";
+            if($(".search__item--active")[0]){
+                search = $(".search__item--active").text();
             }
 
-            ///////////////////////
+            let order ="";
+            if($(".order__item--active")[0]){
+                order = $(".order__item--active").text();
+            }
+
+            
+            var data = {};
+            data['offset']=offset;
+            if(tags.length>0) data['tags']=tags;
+            if(search!=="") data['search']=search;
+            if(order!=="") data['order']=order;
+            
+            console.log(data);
+
             $.ajax({
-                url:'list_ajax.php',
-                type:"post",
-                data:$("#form").serialize(),
-            }).done(function(data){
-                if(options.append){
-                    $listContainer.append(data);    
+                url: 'list_ajax.php',
+                type: "get",
+                data: data,
+            }).done(function(data) {
+                data=JSON.parse(data)
+                if(data.html==""&&offset==0){
+                    $('#nothing').css("display","block");
                 }else{
-                    $listContainer.html(data);    
+                    $('#nothing').css("display","none");
+                }
+               
+                if(data.more){
+                    $("#more").css("display","block");
+                }else{
+                    $("#more").css("display","none");
+                }
+                if(append){
+                    $listContainer.append(data.html);
+                }else{
+                    $listContainer.html(data.html);
                 }
                 showCircle(0);
-
-                if($(".card").length==reviewCount){
-                    $("#more").css("display","none");
-                }else{
-                    reviewCount = $(".card").length;
-                }
             })
         }
 
-        $(".filter__item").each(function(index){
-            var text = $(this).text();
-            var $elm = $(this);
-            
+        // 더보기 선택시
+        $("#more").on("click",function(ev){
+            offset++;
+            ev.preventDefault();
+            getList(true);
+        });
 
-            $(this).on("click",function (ev){
-                console.log("clicked");
+
+        // 정렬 태그 선택시
+        $(".order__item").each(function(index){
+            var $elm = $(this);
+            $elm.on("click",function(ev){
                 ev.preventDefault();
-                
-                if($elm.hasClass("filter__item--active")){
-                    $elm.removeClass("filter__item--active")
-                }else{
-                    $elm.addClass("filter__item--active")
+                offset=0;
+                var activated = $elm.hasClass("order__item--active");
+                $(".order__item").removeClass("order__item--active");
+
+                if(!activated){
+                    $elm.addClass("order__item--active");
                 }
-                // console.log('hi');
-                // $elm.toggleClass("filter__item--active");
+
                 getList();
-                
             });
         });
 
-        getList();
+        // 검색 태그 선택시
+        $(".search__item").on("click",function (ev){
+            ev.preventDefault();
+            offset=0;
+            $(".search__item").toggleClass("search__item--active");
+            getList();
+        });
 
+        // 필터 태그 선택시
+        $(".filter__item").each(function(index){
+            var $elm = $(this);
+            
+            $elm.on("click",function (ev){
+                ev.preventDefault();
+                offset=0;
+                $elm.toggleClass("filter__item--active");
+                getList();
+            });
+        });
+
+
+        getList();
 
     });
     </script>
