@@ -13,7 +13,5 @@ class baseModel {
    protected function quote($str){
        return $this->conn->quote($str);
    }
-
-
 }
 ?>

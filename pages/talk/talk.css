@@ -20,6 +20,7 @@
 
 .inside__author{
     float:right;
+    padding:10px 20px;
 }
 
 .inside__author:before{
@@ -51,7 +52,7 @@
 }
 
 .inside__date{
-    float:right;
+    text-align: right;
     padding:10px 20px;
 }
 
@@ -61,13 +62,14 @@
 }
 
 .inside__content{
-    padding:30px;
+    padding:100px 30px;
+    
     line-height:1.8rem;
 }
 
 .inside__comment-area{
+    border-top:1px solid var(--light-grey);
     padding:30px;
-    padding-top:0;
 }
 
 .comment{
@@ -75,7 +77,6 @@
 }
 
 .comment__item{
-    font-size:0;
     margin-top:20px;
 }
 
@@ -110,7 +111,9 @@
 
 .comment__item-date{
     text-align: right;
-    margin-top:10px;
+    /* margin-top:10px; */
+    margin:10px;
+    color:var(--base-color-light2);
 }
 
 .now{

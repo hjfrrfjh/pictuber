@@ -40,11 +40,6 @@
     margin-top:10px;
 }
 
-/* 인기검색어 */
-.filter__group:first-child{
-
-}
-
 .filter__item, .search__item{
     display:inline-block;
     border:1px solid var(--light-grey);
@@ -96,7 +91,7 @@
     display:inline-block;
     vertical-align:middle;
     font-size:1.2em;
-    padding:15px 20px;
+    padding:10px 20px;
 }
 
 .card{
@@ -225,7 +220,7 @@
 }
 
 .nothing{
-    font-size:2rem;
+    font-size:1.5rem;
     margin:100px auto;
     text-align: center;
 }

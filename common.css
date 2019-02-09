@@ -23,7 +23,8 @@
 }
 html { 
     /* 스크롤바 여부에따라 레이아웃 움직이는 문제 해결 */
-    margin-left: calc(100vw - 100%); 
+    /* padding-right: calc(100vw - 100%);  */
+    overflow-y: scroll;
 }
 ul, li{
     list-style:none;
@@ -380,7 +381,7 @@ h1{
 .button--light:hover{
     color:white;
     background-color:var(--base-color);
-    border:none;
+    border:1px solid var(--base-color);
 }
 
 .button--just-text:hover{

@@ -1,9 +1,8 @@
-<?php include "../../common.php" ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <?php echo includeHelper("../../head.php"); ?>
+    <?php include "../../head.php" ?>
 
     <title>Picktuber</title>
     <link rel="stylesheet" type="text/css" media="screen" href="review.css" />
@@ -11,7 +10,7 @@
 </head>
 
 <body>
-    <?php echo includeHelper("../../header.php");?>
+    <?php include "../../header.php";?>
     <!-- /////////////////////////////////////////////////-->
     <?php $subTitle="Youtuber"; include "../../sub-title.php" ?>
     <div class="content">
@@ -60,7 +59,7 @@
         </form>
     </div>
     <!-- ///////////////////////////////////////////// -->
-    <?php echo includeHelper("../../footer.php");?>
+    <?php include "../../footer.php" ?>
     <script>
 
     </script>

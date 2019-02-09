@@ -15,14 +15,17 @@
     <!-- /////////////////////////////////////////////////-->
     <?php include 'list_model.php' ?>
     <?php 
-        $search = $_GET['search'];
+        $search = "";
+        $search = !empty($_GET['search'])?$_GET['search']:"";
+
+        $result = $model->getTopTags();
     ?>
     <div class="content">
         <div class="top clearfix">
             <div class="filter">
                 <div class="filter__group">
                 <?php 
-                    if(isset($_GET['search'])){
+                    if(!empty($search)){
                         echo "<div class='search__title'>검색어</div><a href='#' class='search__item search__item--active'>$search</a> <span class='search__desc'><- 클릭시 <strong>검색해제</strong>가 가능합니다!</span>";
                     }
                 ?>
@@ -33,7 +36,6 @@
                 <div class="filter__group">
                     <div class="filter__title">인기 태그</div>
                     <?php 
-                    $result = $model->getTopTags();
                     foreach($result as $data){
                         echo '<a href="#" class="filter__item">',$data->tag,'</a>';
                     }
@@ -41,7 +43,7 @@
                 </div>
                 <div class ="order">
                 <div class="order__title">
-                    정렬 -
+                    높은 점수로 정렬 -
                 </div>
                 <a href="#" class="order__item">정보</a>
                 <a href="#" class="order__item">비주얼</a>
@@ -57,8 +59,8 @@
 
         <ul id="list" class="list"></ul>
     </div>
-    <div id="nothing" class="nothing">해당하는 유투버가 없습니다. ㅠ.ㅠ</div>
-    <a href="#" id="more" class="more button">더보기</a>
+    <div id="nothing" class="nothing">&lt 해당하는 유투버가 없습니다. ㅠ.ㅠ &gt</div>
+    <a href="#" id="more" class="more button button--light">더보기</a>
     <script>
 
     </script>
@@ -66,57 +68,6 @@
     <?php include "../../footer.php";?>
     <script>
     $(function() {
-        // var $listContainer = $("#list");
-        // var reviewCount = 0;
-
-
-
-        // function getList(options){
-        //     var options = typeof options !== 'undefined' ?  options : {append:false};
-        //     /////////////////////////where 절 생성
-        //     $items = $(".filter__item--active");
-
-        //     if($items.length==0) {
-        //         $("#where").val("");
-        //         $("#last_item").val("0");
-        //     }else{
-        //         var where = "where";
-
-        //         for(var i=0;i<$items.length;i++){
-        //             if(i>0){
-        //                 where = where + " or";
-        //             }
-        //             var searchText = $($items.get(i)).html();
-        //             where = where + ' tags like "%'+searchText+'%"';
-        //         }
-
-        //         $("#where").val(where);
-        //         $("#last_item").val(0);
-        //     }
-
-        //     ///////////////////////
-        //     $.ajax({
-        //         url:'list_ajax.php',
-        //         type:"post",
-        //         data:$("#form").serialize(),
-        //     }).done(function(data){
-        //         if(options.append){
-        //             $listContainer.append(data);    
-        //         }else{
-        //             $listContainer.html(data);    
-        //         }
-        //         showCircle(0);
-
-        //         if($(".card").length==reviewCount){
-        //             $("#more").css("display","none");
-        //         }else{
-        //             reviewCount = $(".card").length;
-        //         }
-        //     })
-        // }
-
-
-
         let $listContainer = $("#list");
         let offset=0;
         function getList(append) {
@@ -145,8 +96,6 @@
             if(tags.length>0) data['tags']=tags;
             if(search!=="") data['search']=search;
             if(order!=="") data['order']=order;
-            
-            console.log(data);
 
             $.ajax({
                 url: 'list_ajax.php',

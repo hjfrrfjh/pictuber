@@ -7,7 +7,7 @@ truncate youtuber_review;
 truncate youtuber_info;
 truncate youtuber_sum;
 truncate board_talk;
-truncate board_talk_comment
+truncate board_talk_comment;
 SET FOREIGN_KEY_CHECKS = 1;
 
 DELIMITER $$
@@ -18,8 +18,11 @@ BEGIN
     DECLARE i INT DEFAULT 1;
         
     WHILE i <= 50 DO
-        INSERT INTO youtuber(name,detail)
-          VALUES(concat('유투버 이름',i),concat(concat('유투버 설명',i),'동해물과 백두산이 마르고 닳도록 하는님이 보우하사 우리날라만세 로렘입숨 입니다. 유투브 설명이 들어가는 곳입니다.'));
+        INSERT INTO youtuber(name,detail,url)
+          VALUES(concat('유투버 이름',i)
+          ,concat(concat('유투버 설명',i),'동해물과 백두산이 마르고 닳도록 하는님이 보우하사 우리날라만세 로렘입숨 입니다. 유투브 설명이 들어가는 곳입니다.')
+          ,"http://www.naver.com"
+          );
         SET i = i + 1;
     END WHILE;
 END$$

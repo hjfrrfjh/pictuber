@@ -1,10 +1,8 @@
-
-<?php include "../../common.php" ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <?php echo includeHelper("../../head.php"); ?>
+    <?php include "../../head.php"; ?>
 
     <title>Picktuber</title>
     <link rel="stylesheet" type="text/css" media="screen" href="write.css" />
@@ -12,7 +10,7 @@
 </head>
 
 <body>
-    <?php echo includeHelper("../../header.php");?>
+    <?php include "../../header.php"?>
     <?php $subTitle="PickTalk"; include "../../sub-title.php" ?>
     <!-- /////////////////////////////////////////////////-->
     
@@ -25,7 +23,7 @@
         </div>
         <div class="editor__buttons">
             <a href="#" class="button">글쓰기</a>
-            <a href="#" class="button">취소</a>
+            <a href="#" class="button" onclick="history.go(-1)">취소</a>
         </div>
     </form>
 
@@ -33,7 +31,7 @@
     
     </div>
     <!-- ///////////////////////////////////////////// -->
-    <?php echo includeHelper("../../footer.php");?>
+    <?php include "../../footer.php" ?>
     <script src="../../lib/quill/quill.min.js"></script>
 
     <script>

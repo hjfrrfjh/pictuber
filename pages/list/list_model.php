@@ -1,40 +1,37 @@
 <?php 
     require '../../db_conn.php';
     class Model extends baseModel{
-        private $more=true;
-
         public function getTopTags(){
-            $statement = $this->query("SELECT * FROM view_top_tag LIMIT 7");
+            $sql = "SELECT * FROM view_top_tag LIMIT 7";
+            $statement = $this->query($sql);
             $result = $statement->fetchAll(PDO::FETCH_OBJ);
             return $result;
         }
 
         public function getYoutuberList(){
+            $sql = "SELECT * FROM view_youtuber_list";
+
             // 한번에 보여줄 유투버 수
             $scale = 12;
             
-            // base SQL
-            $sql = "SELECT * FROM view_youtuber_list";
-            
             // where tag
             $conditions = [];
-            
+            $parameters = [];            
             if (!empty($_GET['tags'])){
                 foreach($_GET['tags'] as $tag){
-                    $conditions[] = 'tags like '.$this->quote("%".$tag."%");
+                    $conditions[] = ' tags like ?';
+                    $parameters[] = "%$tag%";
                 }
             }
-
             // where search
             if (!empty($_GET['search'])){
-                $word = $this->quote("%".$_GET['search']."%");
-                $conditions[] = "(tags like ".$word." or name like ".$word.")";
+                $conditions[] = " (tags like ? or name like ?)";
+                $parameters[] = "%".$_GET['search']."%";
+                $parameters[] = "%".$_GET['search']."%";
             }
-
             if($conditions){
                 $sql .= " where ".implode(" AND ", $conditions);
             }
-
 
             //order by 
             if (!empty($_GET['order'])){
@@ -55,24 +52,22 @@
 
                 $sql .=" order by $targetPoint desc";
             }
-            // order by id desc
 
             // limit
             $sql = $sql." limit $scale";
-            
+
             // offset
             if (!empty($_GET['offset']))
             {
                 $sql = $sql." offset ".$_GET['offset']*$scale;
             }
 
-            // query
-            $statement = $this->conn->query($sql);
+            $statement = $this->conn->prepare($sql);
+            $statement->execute($parameters);
 
-            // return data
             $data = array();
 
-            // 점수 정렬
+            // 점수 정렬 비교함수
             function cmp($a, $b)
             {
                 return $a['point'] < $b['point'];
@@ -93,15 +88,15 @@
                 
                 $obj->tags = explode(",",$result->tags);   
                 $obj->points=$list;
+                $obj->url=$result->url;
                 array_push($data,$obj);
             }
-            $this->more = count($data)==$scale; 
-            return $data;
-            
-        }
 
-        public function hasMore(){
-            return $this->more;
+            $returnData = new stdClass();
+            $returnData->data = $data;
+            $returnData->more = count($data)==$scale;
+
+            return $returnData;
         }
     }
 

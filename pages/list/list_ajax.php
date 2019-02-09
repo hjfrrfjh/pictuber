@@ -2,9 +2,10 @@
 include 'list_model.php';
 ob_start();
 
+
 $results = $model->getYoutuberList();
 // echo $results;
-foreach($results as $data){
+foreach($results->data as $data){
 ?><li class="card-base-deco card">
     <div class="card__wraper">
         <div class="card__title">
@@ -44,13 +45,13 @@ foreach($results as $data){
             <div class="card__button-area">
                 <a href="../youtuber/youtuber.php?id=<?php echo $data->id?>"
                     class="card__button button button--light">프로필</a>
-                <a href="#" class="card__button button button--light">채널이동</a>
+                <a href="<?php echo $data->url?>" target="blank" class="card__button button button--light">채널이동</a>
             </div>
         </div>
     </div>
 </li><?php }
 $obj = new stdClass();
 $obj->html = ob_get_clean();
-$obj->more = $model->hasMore();
+$obj->more = $results->more;
 echo json_encode($obj);
 ?>
