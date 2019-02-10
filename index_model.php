@@ -31,6 +31,7 @@
             
                 $obj->points=$list;
                 $obj->detail=$result->detail;
+                $obj->url=$result->url;
                 array_push($data,$obj);   
             }
             

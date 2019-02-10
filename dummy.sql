@@ -36,8 +36,10 @@ BEGIN
     DECLARE i INT DEFAULT 1;
         
     WHILE i <= 50 DO
-        INSERT INTO user(username,email,password,create_time)
+        INSERT INTO user(username,type,token,email,password,create_time)
           VALUES(concat('유저이름',i)
+          ,'dummy'
+          ,'abcde'
           ,concat('유저메일',i)
           ,'1234'
           ,now());
@@ -106,21 +108,21 @@ BEGIN
             FLOOR(RAND() * 50)+1,
             ELT(FLOOR(RAND()*16)+1, 
             '게임', 
-            '먹방', 
+            '요리', 
+            '리뷰', 
+            '음악', 
+            '창업', 
+            '여행', 
             '병맛', 
-            '태그2', 
-            '태그3', 
-            '태그4', 
-            '태그5', 
-            '태그6', 
-            '태그7', 
-            '태그8', 
-            '태그9', 
-            '태그10', 
-            '태그11', 
-            '태그12', 
-            '태그13', 
-            '태그14')
+            '개그', 
+            '일상', 
+            '체험', 
+            '맛집', 
+            '인터뷰', 
+            '음악모음', 
+            '믹싱', 
+            '쇼핑몰', 
+            '마케팅')
           );
         SET i = i + 1;
     END WHILE;

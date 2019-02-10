@@ -37,7 +37,7 @@
             $id = isset($_GET['id'])?$_GET['id']:"";
             
             if(empty($id)) return ""; //ID가 없을경우 공백리턴
-
+            
             // sql1
             $data = new stdClass();
             $statement = $this->conn->prepare($sql1);
@@ -73,6 +73,7 @@
 
             return $data;
         }
+
     }
     $model = new Model();
 

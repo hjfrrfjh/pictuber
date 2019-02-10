@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html id="html" style="opacity: 1">
 
@@ -85,7 +86,7 @@
                         
                         <div class="pick-card__button-area">
                             <a href="pages/youtuber/youtuber.php?id=<?php echo $result->youtuber_id ?>" class="button button--light">프로필</a>
-                            <a href="#" class="button button--light">채널</a>
+                            <a href="<?php echo $result->url ?>" target="blank" class="button button--light">채널</a>
                         </div>
                     </div>
                     </article>

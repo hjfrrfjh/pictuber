@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +22,7 @@
 
         $data = $model->getYoutuberInfo();
 
-        if(empty($data)) finish_and_die("잘못된 프로필입니다.");
+        if(empty($data)) finish_and_die("잘못된 ID입니다");
 
     ?>
     <div class="content">
@@ -29,8 +30,7 @@
         <div class="profile clearfix">
             <h3 class="profile__name">
                 <?php echo $data->name?>
-            </h3><img class="profile__photo" src="https://via.placeholder.com/300">
-            <div class="profile__right">
+            </h3><img class="profile__photo" src="https://via.placeholder.com/300"><div class="profile__right">
                 <ul class="tag">
                     <?php 
                     foreach($data->tags as $tag){
@@ -41,7 +41,6 @@
                         }
                     }
                 ?>
-
                 </ul>
                 <div class="circle-component clearfix">
                     <div class="circle-component__circle" data-value=<?php echo $data->point1?>>
@@ -83,9 +82,7 @@
                         정보
                     </div>
                 </div>
-            </div>
-
-            <div class="profile__bottom">
+            </div><div class="profile__bottom">
                 <div class="profile__info-area clearfix">
                     <ul class="profile__info">
                         <?php 

@@ -8,8 +8,15 @@
         </div>
         <form class="search" action="/pages/list/list.php" method="GET">
             <input class="search__text" type="text" name="search" placeholder="유투버 검색"><button class="search__submit icon-font icon-font--search"
-                type="submit" value="">
+                type="submit" value=""></button>
         </form>
+        <div class="login-area">
+            <?php
+                if(empty($_SESSION['id'])){
+                    echo "<a class='login' href='#'><strong>Google ID</strong> 로 로그인하기</a>";
+                }
+            ?>
+        </div>
     </div>
     <nav class="gnb">
         <ul class="gnb__container">
@@ -20,4 +27,5 @@
             <li class="gnb__item"><a href="#">유투버 공간</a><div class="gnb__item-underline"></div></li>
         </ul>
     </nav>
+
 </header>

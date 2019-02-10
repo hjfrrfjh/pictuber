@@ -5,11 +5,11 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    --base-color:#E44F3F;
+    --base-color:rgb(228, 63, 63);
     --base-color-dark1:#801515;
     --base-color-dark2:#550000;
-    --base-color-light1:#FE7567;
-    --base-color-light2:#FF9C92;
+    --base-color-light1:rgb(254, 103, 103);
+    --base-color-light2:rgb(255, 146, 146);
     
     --point-color:#36bf68;
     --point-color-dark:#068F39;
@@ -22,8 +22,6 @@
     /* outline:1px dashed lightgrey; */
 }
 html { 
-    /* 스크롤바 여부에따라 레이아웃 움직이는 문제 해결 */
-    /* padding-right: calc(100vw - 100%);  */
     overflow-y: scroll;
 }
 ul, li{
@@ -121,6 +119,16 @@ h1{
     vertical-align: middle;
 }
 
+.login-area{
+    float:right;
+    margin-top: 20px;
+    color:var(--base-color);
+    font-size:0.9rem;
+}
+
+.login-area strong{
+    font-size:1.1rem;
+}
 .gnb {
     border-top:1px solid var(--light-grey);
     text-align:center;
@@ -495,17 +503,18 @@ h1{
 .wrap{
     max-width:1200px;
     margin:0 auto;
-    /* padding:20px; */
     padding-top:0;
 }
 
 .sub-title__area{
     border-top:2px solid var(--base-color);
-    text-align:left;
+    
 }
 
 .sub-title__text{
+    transform:translate(0,-1px);
     font-size:2em;
+    /* margin-top:-1px; */
     padding:20px;
     padding-bottom:0;
     display:inline-block;

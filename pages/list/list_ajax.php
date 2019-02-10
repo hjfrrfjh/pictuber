@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'list_model.php';
 ob_start();
 
