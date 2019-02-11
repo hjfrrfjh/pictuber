@@ -3,11 +3,11 @@
 <html>
 
 <head>
+    <base href="../../">
     <?php include "../../head.php"; ?>
-
     <title>Picktuber</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="write.css" />
-    <link href="../../lib/quill/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="pages/talk/write.css" />
+    <link href="lib/quill/quill.snow.css" rel="stylesheet">
 </head>
 
 <body>

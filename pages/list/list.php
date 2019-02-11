@@ -15,10 +15,12 @@
     <!-- /////////////////////////////////////////////////-->
     <?php include 'list_model.php' ?>
     <?php 
+        
         $search = "";
+        
         $search = !empty($_GET['search'])?$_GET['search']:"";
-
         $result = $model->getTopTags();
+        
     ?>
     <div class="content">
         <div class="top clearfix">

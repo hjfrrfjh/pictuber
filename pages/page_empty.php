@@ -3,6 +3,7 @@
 <html>
 
 <head>
+    <base href="../../">
     <?php include "../../head.php" ?>
     <title>Picktuber</title>
 </head>

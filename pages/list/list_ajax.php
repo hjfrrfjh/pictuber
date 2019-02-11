@@ -16,7 +16,7 @@ foreach($results->data as $data){
             <div class="card__tag-area"><?php 
                 foreach($data->tags as $tag){
                     if(empty($tag)) continue;
-                    echo "<a href='list.php?search=$tag' class='card__tag'>$tag</a>";
+                    echo "<a href='pages/list/list.php?search=$tag' class='card__tag'>$tag</a>";
                 }
             ?></div><img class="card__img" src="https://via.placeholder.com/80"><div class="card__circle">
                 <div class="circle-component clearfix">
