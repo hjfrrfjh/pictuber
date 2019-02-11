@@ -7,13 +7,16 @@
             return $result;
         }
 
-        function isMember($type,$token){
+        function getMemberInfo($type,$token){
             $sql = "select * from user where type=? and token=?";
             $statement = $this->conn->prepare($sql);
             $statement->execute([$type,$token]);
-            // $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            return $statement->rowCount() > 0;
+            $result = $statement->fetch(PDO::FETCH_OBJ);
+
+            return $result;
         }
+
+        
     }
     $model = new Model();
 ?>
