@@ -1,7 +1,7 @@
 <header class="header">
     <div class="header__top-area">
         <div class="logo-container">
-            <h1><a href="/"><img class="logo-container__logo logo" src="/img/logo_edit3.png" alt="픽튜버"></a></h1>
+            <h1><a href="/"><img class="logo-container__logo logo" src="img/logo_edit3.png" alt="픽튜버"></a></h1>
             <!-- <div class="logo-container__text">
                 <strong>당신의</strong><strong>유투버</strong>를 알려주세요
             </div> -->

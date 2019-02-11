@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <base href="../../" target="_blank">
+    <base href="../../">
     <?php include "../../head.php" ?>
     <title>Picktuber</title>
     <link rel="stylesheet" type="text/css" media="screen" href="pages/list/list.css" />
