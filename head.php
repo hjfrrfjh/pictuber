@@ -5,9 +5,9 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="/common.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="/fonts/font.css" />
-        <script src="/lib/jquery-3.3.1.min.js"></script>
-        <script src="/lib/circle-progress.min.js"></script>
-        <script src="/common.js"></script>
+        <script src="lib/jquery-3.3.1.min.js"></script>
+        <script src="lib/circle-progress.min.js"></script>
+        <script src="common.js"></script>
 
 
 

@@ -3,10 +3,10 @@
 <html>
 
 <head>
+    <base href="../../" target="_blank">
     <?php include "../../head.php" ?>
-
     <title>Picktuber</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="review.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="pages/youtuber/review.css" />
 
 </head>
 

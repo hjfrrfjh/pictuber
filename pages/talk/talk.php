@@ -3,10 +3,10 @@
 <html>
 
 <head>
+    <base href="../../" target="_blank">
     <?php include "../../head.php"; ?>
-
     <title>Picktuber</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="talk.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="pages/talk/talk.css" />
 
 </head>
 
@@ -114,7 +114,7 @@
             <div class="board__bottom">
                 <div class="board__control-page">
                     <div class="board__buttons">
-                        <a href="write.php" class="button button--point">글쓰기</a>
+                        <a href="pages/talk/write.php" class="button button--point">글쓰기</a>
                     </div>
                     <?php 
                         $acitve = !empty($offset)?$offset+1:1;
@@ -124,12 +124,12 @@
                         }
                     ?>
                 </div>
-                <form class="board__search-control" method="GET" action="talk.php">
+                <form class="board__search-control" method="GET" action="pages/talk/talk.php">
                     <input class="board__search-text" type="text" placeholder="검색어 입력" name="search">
                     <button class="board__search-submit button" type="submit" value="검색하기">검색</button>
                     <?php 
                         if(!empty($search)){
-                            echo "<a href='talk.php' class='button'>전체보기</a>";
+                            echo "<a href='pages/talk/talk.php' class='button'>전체보기</a>";
                         }
                     ?>
 

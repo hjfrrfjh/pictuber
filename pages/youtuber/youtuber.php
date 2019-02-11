@@ -3,10 +3,10 @@
 <html>
 
 <head>
+    <base href="../../" target="_blank">
     <?php include "../../head.php" ?>
-
     <title>Picktuber</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="youtuber.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="pages/youtuber/youtuber.css" />
 </head>
 
 <body>
@@ -97,7 +97,7 @@
                     <p class="profile__detail"><?php echo $data->detail ?></p>
                 </div>
                 <div class="profile__button-area">
-                    <a href="review.php" class="profile__button button button--point">평점 주기</a>
+                    <a href="/pages/youtuber/review.php" class="profile__button button button--point">평점 주기</a>
                     <a href="#" class="profile__button button">정보 수정 요청</a>
                 </div>
             </div>
@@ -137,7 +137,7 @@
         function getReview() {
 
             $.ajax({
-                url: 'youtuber_ajax.php',
+                url: 'pages/youtuber/youtuber_ajax.php',
                 type: "get",
                 data: {
                     id: id,

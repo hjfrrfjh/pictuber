@@ -69,7 +69,7 @@
             
             foreach($results as $data){
                 // URL 생성
-                $url = "talk.php";
+                $url = "pages/talk/talk.php";
                 $params=[];
 
                 $params[]="id=$data->id";
@@ -115,7 +115,7 @@
                 $page = new StdClass();
                 $page->number = $i+1;
 
-                $url = "talk.php?offset=".$i;
+                $url = "pages/talk/talk.php?offset=".$i;
 
                 if(!empty($search)){
                     $url .= "&search=$search";

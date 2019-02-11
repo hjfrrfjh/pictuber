@@ -3,11 +3,10 @@
 <html>
 
 <head>
+    <base href="../../" target="_blank">
     <?php include "../../head.php" ?>
-
     <title>Picktuber</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="list.css" />
-
+    <link rel="stylesheet" type="text/css" media="screen" href="pages/list/list.css" />
 </head>
 
 <body>
@@ -99,7 +98,7 @@
             if(order!=="") data['order']=order;
 
             $.ajax({
-                url: 'list_ajax.php',
+                url: 'pages/list/list_ajax.php',
                 type: "get",
                 data: data,
             }).done(function(data) {

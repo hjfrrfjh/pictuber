@@ -44,7 +44,7 @@ foreach($results->data as $data){
                 <!--  -->
             </div>
             <div class="card__button-area">
-                <a href="../youtuber/youtuber.php?id=<?php echo $data->id?>"
+                <a href="pages/youtuber/youtuber.php?id=<?php echo $data->id?>"
                     class="card__button button button--light">프로필</a>
                 <a href="<?php echo $data->url?>" target="blank" class="card__button button button--light">채널이동</a>
             </div>
