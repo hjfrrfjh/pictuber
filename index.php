@@ -43,7 +43,7 @@
                 <!-- PHP출력  -->
                 <?php 
                 $results = $model->getLastestPick();
-
+                print_r($results);
                 foreach($results as $result){
                 ?>
                 <article class="pick-card card-base-deco">
