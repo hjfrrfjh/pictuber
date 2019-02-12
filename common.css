@@ -5,11 +5,11 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    --base-color:rgb(228, 63, 63);
+    --base-color:#E24E3E;
     --base-color-dark1:#801515;
     --base-color-dark2:#550000;
-    --base-color-light1:rgb(254, 103, 103);
-    --base-color-light2:rgb(255, 146, 146);
+    --base-color-light1:#FC7466;
+    --base-color-light2:#FF9B91;
     
     --point-color:#36bf68;
     --point-color-dark:#068F39;
@@ -121,13 +121,20 @@ h1{
 
 .login-area{
     float:right;
-    margin-top: 20px;
+    margin-top: 10px;
     color:var(--base-color);
     font-size:0.9rem;
+    text-align: right;
 }
 
 .login-area strong{
     font-size:1.1rem;
+    text-decoration: underline
+}
+
+.logout{
+display: inline-block;
+margin-top: 5px;
 }
 .gnb {
     border-top:1px solid var(--light-grey);
@@ -360,6 +367,7 @@ h1{
     display:inline-block;
     border-radius:5px;
     border:none;
+    cursor: pointer;
 }
 
 .button--light{

@@ -13,7 +13,12 @@
         <div class="login-area">
             <?php
                 if(empty($_SESSION['id'])){
-                    echo "<a class='login' href='#'><strong>Google ID</strong> 로 로그인하기</a>";
+                    echo "<a class='login' href='pages/member/login.php'><strong>Google ID</strong> 로 로그인하기</a>";
+                }else{
+                    echo "
+                    <div class='' href='#'><strong>".$_SESSION['name']."</strong>님 환영합니다</div>
+                    <a href='pages/member/logout.php' class='logout'>로그아웃</a>
+                    ";
                 }
             ?>
         </div>

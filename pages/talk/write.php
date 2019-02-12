@@ -17,6 +17,7 @@
     
     <div class="content">
     <form class="editor">
+        
         <h3 class="title">
             새로운 글쓰기
         </h3>

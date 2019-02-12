@@ -26,58 +26,18 @@ $email = $response['email'];
 
 
 if($result = $model->getMemberInfo("google",$id)){ //맴버 존재시 로그인처리
-    
-    // $_SESSION["name"] = $result->username;
-    // $_SESSION["email"] = $email;
-    echo $id;
-    exit;
+    $_SESSION['id'] = $id;
+    $_SESSION['name'] = $result->username;
+    $_SESSION['email'] = $email;
+    $_SESSION['type'] = "google";
+    echo "login_succeed";
 }else{//맴버 없을시
     $_SESSION['process_id'] = $id;
+    $_SESSION['process_nick'] = $name;
+    $_SESSION['process_email'] = $email;
+    $_SESSION['process_type'] = "google";
     echo "next";
 }
 
-// $response = file_get_contents('https://oauth2.googleapis.com/tokeninfo?id_token='.$id_token);
 
-
-
-// echo $response;
-// if($response['error']){
-//     echo "error ";
-    
-// }else{
-//     echo $response;
-// }
-exit;
-
-
-
-
-
-// print_r($response);
-
-exit;
-if(!empty($response['error'])){
-    echo "verify failed";
-    exit;
-}
-
-$id = $response['sub'];
-$name = $response['name'];
-$email = $response['email'];
-
-if($model->isMember("google",$id)){ //맴버 존재시 로그인처리
-    $_SESSION["id"] = $id;
-    $_SESSION["name"] = $name;
-    echo "succeed";
-}else{
-    echo "failed";
-    //맴버 없을시 가입처리
-    // if($model->insertMember("google",$id,$name,$email)){
-    //     $_SESSION["id"] = $id;
-    //     $_SESSION["name"] = $name;
-    //     echo "login_succeed";
-    // }else{
-    //     echo "signup_failed";
-    // }
-}
 ?>

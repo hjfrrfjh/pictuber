@@ -22,7 +22,11 @@
 
         $data = $model->getYoutuberInfo();
 
-        if(empty($data)) finish_and_die("잘못된 ID입니다");
+        if(empty($data)){
+            echo "<div style='text-align:center'>잘못된 ID입니다</div>";
+            include "../../footer.php";
+            exit;
+        };
 
     ?>
     <div class="content">
@@ -112,15 +116,6 @@
     </div>
     <!-- ///////////////////////////////////////////// -->
     <?php include "../../footer.php"?>
-    <?php 
-    
-    function finish_and_die($message) {
-        echo "<div style='text-align:center'>$message</div>";
-        include "../../footer.php";
-        exit;
-    }
-
-    ?>
 
     <?php echo "<script>var id=$id;</script>"?>
     <script>

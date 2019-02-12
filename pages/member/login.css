@@ -4,6 +4,9 @@
     color:var(--base-color);
 }
 .content .button{
+    display: none !important;
+}
+.content .button{
     display: block;
     max-width:300px;
     margin:0 auto;

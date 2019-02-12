@@ -17,7 +17,6 @@
     <?php 
         
         $search = "";
-        
         $search = !empty($_GET['search'])?$_GET['search']:"";
         $result = $model->getTopTags();
         
@@ -54,11 +53,9 @@
                 <a href="#" class="order__item">소통</a>
             </div>
             </div>
-            <a href="#" class="button button--point top__add-youtuber">유투버 등록하기</a>
+            <a href="pages/list/add_youtuber.php" class="button button--point top__add-youtuber">유투버 등록하기</a>
 
         </div>
-        
-
         <ul id="list" class="list"></ul>
     </div>
     <div id="nothing" class="nothing">&lt 해당하는 유투버가 없습니다. ㅠ.ㅠ &gt</div>

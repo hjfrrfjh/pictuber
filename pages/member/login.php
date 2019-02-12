@@ -16,15 +16,14 @@
     <?php include "../../header.php" ?>
     <?php $subTitle="Login"; include "../../sub-title.php" ?>
     <div class="content">
-        <div class="desc">- 로그인이 필요합니다</div>
+        <!-- <div class="desc">구글 </div> -->
         <!-- <a class="button google" href="#">G 구글 ID로 로그인</a> -->
         <div class="google">
             <div class="g-signin2" data-width="300" data-height="80" data-longtitle="true"
                 data-onsuccess="onSignInGoogle"></div>
         </div>
 
-        <a href="#" onclick="signOut();">Sign out</a>
-
+        <!-- <a href="#" onclick="signOut();">Sign out</a> -->
         <!-- <a class="button naver" href="#">N 네이버 아이디로 로그인</a>
         <a class="button normal" href="#">일반 회원 가입</a> -->
     </div>
@@ -36,13 +35,17 @@
         var profile = googleUser.getBasicProfile();
         // console.log(googleUser.getAuthResponse().id_token);
         $.ajax({
-            url: '/pages/member/google_ajax.php',
+            url: 'pages/member/google_ajax.php',
             type: "post",
             data: {
                 "idtoken": googleUser.getAuthResponse().id_token
             }
         }).done(function(data) {
-            if(data=="next"){
+            signOut();
+            if(data=="login_succeed"){
+                location.href="../../";
+                // 구글 로그아웃 처리
+            }else if(data=="next"){
                 location.href="pages/member/signup.php";
             }else{
                 console.log(data);

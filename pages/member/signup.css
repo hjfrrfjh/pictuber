@@ -1,0 +1,52 @@
+.desc, .welcome{
+    color:var(--base-color);
+    text-align: center;
+    font-size:1.2rem;
+    margin-bottom: 70px;
+    font-weight: normal;
+}
+
+.welcome{
+    font-size:3rem;
+    font-weight: normal;
+    
+}
+.desc{
+    margin-bottom:15px;
+}
+
+.desc strong{
+    font-size:1.8rem;
+}
+
+.form{
+    text-align: center;
+    padding:80px;
+}
+
+.nick{
+    margin-top: 20px;
+    font-size:1.5rem;
+    padding:5px 10px;
+    display: block;
+    margin:0 auto;
+    border:1px solid var(--base-color-light2);
+}
+
+.form__button-area{
+    margin-top: 60px;
+}
+
+.submit{
+    display: block;
+    text-align: center;
+    margin:0 auto;
+}
+
+.form .button{
+    margin:0 5px;
+    font-size:1.2rem;
+    font-weight: bold;
+    display: inline-block;
+    width: 150px;
+}
