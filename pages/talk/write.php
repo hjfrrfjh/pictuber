@@ -34,7 +34,7 @@
     </div>
     <!-- ///////////////////////////////////////////// -->
     <?php include "../../footer.php" ?>
-    <script src="../../lib/quill/quill.min.js"></script>
+    <script src="lib/quill/quill.min.js"></script>
 
     <script>
         var quill = new Quill('#quill-editor', {

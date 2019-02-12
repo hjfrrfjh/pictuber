@@ -2,10 +2,10 @@
     require '../../db_conn.php';
     class Model extends baseModel{
         public function getTopTags(){
-            $sql = "SELECT * FROM view_top_tag LIMIT 7";
-            $statement = $this->conn->prepare($sql);
-            $statement->execute();
-            $result = $statement->fetchAll(PDO::FETCH_OBJ);
+                $sql = "SELECT * FROM view_top_tag LIMIT 7";
+                $statement = $this->conn->prepare($sql);
+                $statement->execute();
+                $result = $statement->fetchAll(PDO::FETCH_OBJ);
             return $result;
         }
 

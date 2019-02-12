@@ -20,7 +20,7 @@ BEGIN
     WHILE i <= 50 DO
         INSERT INTO youtuber(name,detail,url)
           VALUES(concat('유투버 이름',i)
-          ,concat(concat('유투버 설명',i),'동해물과 백두산이 마르고 닳도록 하는님이 보우하사 우리날라만세 로렘입숨 입니다. 유투브 설명이 들어가는 곳입니다.')
+          ,concat(concat('유투버 설명',i),'모든 국민은 법률이 정하는 바에 의하여 선거권을 가진다. 누구든지 체포 또는 구속의 이유와 변호인의 조력을 받을 권리가 있음을 고지받지 아니하고는 체포 또는 구속을 당하지 아니한다. 체포 또는 구속을 당한 자의 가족등 법률이 정하는 자에게는 그 이유와 일시·장소가 지체없이 통지되어야 한다.')
           ,"http://www.naver.com"
           );
         SET i = i + 1;
@@ -140,7 +140,7 @@ BEGIN
         INSERT INTO youtuber_info(youtuber_id, info, url)
           VALUES(
               FLOOR(RAND() * 50)+1,
-              concat(i,'정보 입니다~~ 로렘 입숨!!'),
+              concat(i,'국가는 지역간의 균형있는 발전을 위하여 '),
               "http://www.anver.com"
             );
         SET i = i + 1;

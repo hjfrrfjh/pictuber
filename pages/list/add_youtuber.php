@@ -1,4 +1,9 @@
 <?php session_start(); ?>
+<?php 
+if(empty($_SESSION['id'])){
+    header('Location: ../../pages/member/login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -6,6 +11,7 @@
     <base href="../../">
     <?php include "../../head.php" ?>
     <title>Picktuber</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="pages/list/add_youtuber.css" />
 </head>
 
 <body>

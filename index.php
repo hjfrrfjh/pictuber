@@ -120,10 +120,10 @@
             <section class="youtuber-board">
                 <h2 class="youtuber-board__title"><i class="icon-font icon-font--face1"></i>유투버 공간</h2>
                 <div style="text-align:center">
-                    <a href="#" class="button button--point" style="letter-spacing: -1px;">게시판 신청하러 가기</a>
+                    <a href="#" class="button button--point" style="letter-spacing: -1px;">게시판 신청하기</a>
                 </div>
                 <div style="line-height:200%;padding:0 20px;">
-                <br>특정 유투버를 주제로한 게시판을 만들어드리고 있습니다. 신청하시면 바로 만들어 드리겠습니다.^^
+                <br>특정 유투버를 주제로한 게시판을 만들어드리고 있습니다
                 </div>
             </section>
         </div>
