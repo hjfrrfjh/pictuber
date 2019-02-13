@@ -32,6 +32,13 @@
             return $result;
         }
 
+        function insertBoard(){
+            $body = $_POST['body'];
+            $subject = $_POST['subject'];
+            $id = $_SESSION['id'];
+            
+
+        }
 
         function getBoardList(){
             $sql = "SELECT * from view_board_talk_list";

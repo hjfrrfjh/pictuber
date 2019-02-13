@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="pick-card__text clamp"><?php echo  $result->detail ?></p>
+                        <p class="pick-card__text"><?php echo  $result->detail ?></p>
                         
                         <div class="pick-card__button-area">
                             <a href="pages/youtuber/youtuber.php?id=<?php echo $result->youtuber_id ?>" class="button button--light">프로필</a>
@@ -145,7 +145,9 @@
 
             showCircle(2000);
 
-            Ellipsis(); //두줄 이상 텍스트 제거
+            $('.pick-card__text').ellipsis({
+                lines: 2,             // force ellipsis after a certain number of lines. Default is 'auto'
+            });
 
             $('#html').css("opacity", "1");
         });

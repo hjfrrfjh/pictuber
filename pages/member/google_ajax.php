@@ -26,7 +26,7 @@ $email = $response['email'];
 
 
 if($result = $model->getMemberInfo("google",$id)){ //맴버 존재시 로그인처리
-    $_SESSION['id'] = $id;
+    $_SESSION['id'] = $result->id;
     $_SESSION['name'] = $result->username;
     $_SESSION['email'] = $email;
     $_SESSION['type'] = "google";

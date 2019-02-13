@@ -123,12 +123,13 @@
 .pick-card__text{
     margin-top:20px;
     line-height:2em;
+    height:70px;
 }
 
 
 
 .pick-card__button-area{
-    padding-top:30px;
+    /* padding-top:10px; */
     text-align:center;
 }
 

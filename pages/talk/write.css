@@ -2,9 +2,25 @@
     text-align: center;
     margin-top:10px;
     margin-bottom:10px;
+    font-size:1.5rem;
     color:var(--base-color);
 }
 
+.editor__subject-label{
+    width:80px;
+    text-align: center;
+    display: inline-block;
+    color:var(--base-color);
+    font-size:1.2rem;
+}
+.editor__subject{
+    width:calc(100% - 80px);
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding:10px;
+    border:1px solid lightgrey;
+}
 #quill-editor{
     height:400px;
 }
@@ -21,4 +37,8 @@
 
 .editor__buttons .button:nth-child(2){
     margin-left:10px;
+}
+
+.button{
+    font-size:1.1rem;
 }

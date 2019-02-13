@@ -16,7 +16,7 @@
     <?php include "../../header.php" ?>
     <?php $subTitle="Login"; include "../../sub-title.php" ?>
     <div class="content">
-        <!-- <div class="desc">구글 </div> -->
+        <div class="desc">LOGIN</div>
         <!-- <a class="button google" href="#">G 구글 ID로 로그인</a> -->
         <div class="google">
             <div class="g-signin2" data-width="300" data-height="80" data-longtitle="true"

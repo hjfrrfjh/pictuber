@@ -25,7 +25,8 @@
         $result = $model->insertMember($process_type,$process_id, $process_nick, $process_email);
 
         if($result){
-            $_SESSION['id'] = $process_id;
+            $resultInfo = $model->getMemberInfo("google",$process_id);
+            $_SESSION['id'] = $resultInfo->id;
             $_SESSION['name'] = $process_nick;
             $_SESSION['email'] = $process_email;
             $_SESSION['type'] = $process_type;

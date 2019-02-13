@@ -25,6 +25,7 @@
         $process_nick = $_SESSION['process_nick'];
         $process_email = $_SESSION['process_email'];
         $process_type = $_SESSION['process_type'];
+        
 
         if(empty($_SESSION['process_id'])){
             echo "<div style='text-align:center;font-size:1.5rem;padding:100px;'>잘못된 접근입니다</div>";
