@@ -1,5 +1,6 @@
 
 .content{
+    /* text-align: center; */
     text-align: center;
 }
 
@@ -7,9 +8,11 @@
     font-size:2rem;
     color:var(--base-color);
     /* border-bottom:2px solid var(--base-color); */
-    display: inline-block;
+    /* display: inline-block; */
+    display: block;
     font-weight: normal;
     letter-spacing: -2px;
+    text-align: center;
 }
 
 .title span{
@@ -17,17 +20,46 @@
 }
 
 .form__row1{
-    margin-top: 10px;
-    /* text-align: left; */
+    margin-top:50px;
+    text-align: center;
+    display: inline-block;
 }
 
+.form__img{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form__desc{
+    display: inline-block;
+    width:350px;
+    vertical-align: middle;
+    text-align: left;
+    padding:0 30px;
+    line-height:180%;
+}
+.form__row2{
+    margin-top:30px;
+    text-align: center;
+}
+
+.form__desc-box{
+    /* text-align: center; */
+    /* padding:30px 0; */
+    width:265px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:30px;
+    /* margin-top:30px; */
+
+}
 .point-sum:before{
     content:'남은점수 ';
 }
 
 .point-sum{
     font-size:1.4rem;
-    margin-top: 40px;
+    /* margin-top: 50px; */
     color:var(--point-color);
     border-top:2px solid var(--point-color);
     border-bottom:2px solid var(--point-color);
@@ -40,33 +72,31 @@
     margin-top:15px;
     font-size:0.9rem;
 }
-.form__row2{
-    margin-top:10px;
-}
+
 .input-bar{
-    width:300px;
+    width:250px;
     /* margin-left:50px; */
     margin:10px;
     /* border: 1px solid var(--base-color-light2); */
     padding:20px 40px;
     border-radius:10px;
     display: inline-block;
+    vertical-align: middle;
+    text-align: center;
 }
 
 .input-bar__label:before{
     content: '[';
 }
+
 .input-bar__label:after{
     content: ']';
 }
+
 .input-bar__label{
-    font-size:1.5rem;
+    font-size:1.3rem;
     color:var(--base-color);
-    text-align: left;
-    margin-left:-20px;
-    /* border-bottom:2px solid var(--base-color); */
     display: inline-block;
-    /* margin-top: 25px; */
 }
 
 .input-bar__container{
@@ -114,11 +144,9 @@
     background-color:transparent;
     border:none;
     box-shadow:none;
-
     transform:translate(-35%,-120%);
     color:var(--base-color);
     font-size:2rem;
-    
 }
 
 
@@ -133,7 +161,9 @@
 
 .form__row3{
     margin-top:30px;
+    text-align: center;
 }
+
 label{
     display: block;
     font-size:1.2rem;
@@ -141,11 +171,10 @@ label{
 }
 
 .form__detail{
-display: inline-block;
-vertical-align: middle;
-width:48%;
+    display: inline-block;
+    vertical-align: middle;
+    width:48%;
 }
-
 
 .form__text{
     margin-top:20px;
@@ -159,41 +188,6 @@ width:48%;
 
 .form__row3 .button{
     width:150px;
-    margin-top:20px;
+    padding:10px 0;
+    margin-top:30px;
 }
-/* .form label, input[type="number"]{
-    display: block;
-    text-align: center;
-    padding: 5px;
-}
-
-.form label{
-    font-size:1.5rem;
-    color:var(--base-color);
-    margin-top: 25px;
-    
-}
-
-.form input[type="number"]{
-    font-size:1.5rem;
-    width:80px;
-    border:1px solid var(--light-grey);
-}
-
-.form__row2{
-    margin-top: 30px;
-}
-
-
-.form__row3{
-    margin-top: 30px;
-}
-
-.button{ 
-    font-size:1.3rem;
-    font-weight: normal;
-    padding:10px 30px;
-}
-.button:first-child{
-    margin-right: 20px;
-} */

@@ -29,6 +29,9 @@
             return $returnData;
         }
 
+        function insertReview(){
+            
+        }
         function getYoutuberInfo(){
             $sql1 = "SELECT * FROM youtuber WHERE id=?";
             $sql2 = "SELECT * FROM youtuber_info WHERE youtuber_id=?";
