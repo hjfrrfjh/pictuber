@@ -30,7 +30,7 @@
             
             // 쿼리 결과
             if(!$result){
-                $returnValue->msg="잘못된 Email 형식입니다.";
+                $returnValue->msg="쿼리 실패";
                 return $returnValue;
             }
 

@@ -18,10 +18,13 @@ BEGIN
     DECLARE i INT DEFAULT 1;
         
     WHILE i <= 50 DO
-        INSERT INTO youtuber(name,detail,url)
+        INSERT INTO youtuber(name,detail,url, img_url,youtube_id)
           VALUES(concat('유투버 이름',i)
-          ,concat(concat('유투버 설명',i),'모든 국민은 법률이 정하는 바에 의하여 선거권을 가진다. 누구든지 체포 또는 구속의 이유와 변호인의 조력을 받을 권리가 있음을 고지받지 아니하고는 체포 또는 구속을 당하지 아니한다. 체포 또는 구속을 당한 자의 가족등 법률이 정하는 자에게는 그 이유와 일시·장소가 지체없이 통지되어야 한다.')
+          ,concat(concat('유투버 설명',i)
+          ,'모든 국민은 법률이 정하는 바에 의하여 선거권을 가진다. 누구든지 체포 또는 구속의 이유와 변호인의 조력을 받을 권리가 있음을 고지받지 아니하고는 체포 또는 구속을 당하지 아니한다. 체포 또는 구속을 당한 자의 가족등 법률이 정하는 자에게는 그 이유와 일시·장소가 지체없이 통지되어야 한다.')
           ,"http://www.naver.com"
+          ,"https://via.placeholder.com/300"
+          ,"abcde"
           );
         SET i = i + 1;
     END WHILE;

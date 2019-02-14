@@ -31,6 +31,7 @@ ul, li{
 body{
     font-family: 'NanumSquareRound';
     color:var(--balck-color);
+    min-width:800px;
     /* background-color:rgb(245,245,245); */
 }
 

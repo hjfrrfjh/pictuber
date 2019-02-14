@@ -34,7 +34,8 @@
         <div class="profile clearfix">
             <h3 class="profile__name">
                 <?php echo $data->name?>
-            </h3><img class="profile__photo" src="https://via.placeholder.com/300"><div class="profile__right">
+                
+            </h3><img class="profile__photo" src="<?php echo $data->img_url?>"><div class="profile__right">
                 <ul class="tag">
                     <?php 
                     foreach($data->tags as $tag){

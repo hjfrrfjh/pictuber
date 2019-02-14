@@ -29,5 +29,8 @@
     content:'\e808'
 }
 
+.icon-font--down:before{
+    content:'\e801'
+}
 
 

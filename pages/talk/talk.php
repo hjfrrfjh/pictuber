@@ -25,6 +25,10 @@
     ?>
     <div class="content clearfix">
         <?php
+            if(!empty($id)){
+                $model->hit();
+            }
+
             $data = $model->getBoardContent();
             if(!empty($data)){
         ?>
@@ -53,12 +57,29 @@
                 <div class="inside__content">
                     <?php echo $data->content; ?>
                 </div>
+                <?php 
+                    if(!empty($_SESSION['id'])){
+                ?>
+                <a href="#" class="inside__recommend-button button button--point">
+                    <i class="icon-font icon-font--face1"></i><span>추천합니다!</span>
+                </a>
+                <?php } ?>
+
                 <div class="inside__date">
                     <?php echo $data->write_time; ?>
                 </div>
             </div>
 
             <div class="inside__comment-area">
+                <?php
+                if(!empty($_SESSION['id'])){
+                ?>
+                <div class="comment-input">
+                    <label class="comment-input__label">COMMENT</label>
+                    <textarea class="comment-input__body"></textarea>
+                    <input href="#" class="comment-input__button button button--light" value="남기기">
+                </div>
+                <?php } ?>
                 <ul class="comment">
                     <?php
                     $coment_data = $model->getComments();
@@ -83,7 +104,6 @@
             </div>
         </section>
         <?php } ?>
-
 
         <section class="now">
             <ul class="board">

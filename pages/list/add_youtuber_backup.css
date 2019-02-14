@@ -1,0 +1,30 @@
+.list{
+    text-align: center;
+}
+.card{
+    width:200px;
+    height:300px;
+    display: inline-block;
+    vertical-align: middle;
+    margin:10px;
+}
+.card__img{
+    width:100%;
+}
+
+.card__body{
+    padding:10px;
+    padding-top:0;
+}
+
+.card__title{
+    font-size:1.1rem;
+    color:var(--base-color);
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+.card__desc{
+    font-size:1rem;
+}

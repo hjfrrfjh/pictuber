@@ -63,17 +63,60 @@
 
 .inside__content{
     padding:100px 30px;
-    
     line-height:1.8rem;
 }
+
+.inside__recommend-button{
+    display: block;
+    width: 150px;
+    margin:0 auto;
+    /* padding:5px 0; */
+    font-weight: normal;
+    font-size:1.2rem;
+    padding:10px;
+}
+
+.inside__recommend-button i, .inside__recommend-button span{
+    display: block;
+    text-align: center;
+}
+
+.inside__recommend-button span{
+    margin-top:10px;
+}
+
 
 .inside__comment-area{
     border-top:1px solid var(--light-grey);
     padding:30px;
 }
 
+.comment-input__label{
+    color:var(--base-color);
+    font-size:1.2rem;
+    display: block;
+}
+
+.comment-input__body{
+    margin-top:10px;
+    width:100%;
+    height:70px;
+    padding:10px;
+    display: block;
+}
+
+.comment-input__button{
+    display: block;
+    margin:0 auto;
+    margin-top:10px;
+    width:150px;
+    font-size:1.2rem;
+    text-align: center;
+}
+
 .comment{
     display: inline-block;
+    margin-top:20px;
 }
 
 .comment__item{

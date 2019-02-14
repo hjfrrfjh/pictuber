@@ -32,12 +32,38 @@
             return $result;
         }
 
+        function hit(){
+            $sql = "update board_talk set hit= hit+1 where id=?";
+            $result = $this->conn->prepare($sql)->execute([$_GET['id']]);
+            return $result;
+        }
+
         function insertBoard(){
+            $sql = "insert into board_talk(user_id, subject, content) values(?, ?, ?)";
             $body = $_POST['body'];
             $subject = $_POST['subject'];
             $id = $_SESSION['id'];
-            
 
+            $returnValue = new stdClass();
+            $returnValue->succeed=false;
+
+            // 공백 체크
+            if(empty($body)||empty($subject)||empty($id)){
+                $returnValue->msg="공백 데이터가 입력되었습니다.";
+                return $returnValue;
+            }
+
+            $result = $this->conn->prepare($sql)->execute([$id, $subject, $body]);
+
+            // 쿼리 결과
+            if(!$result){
+                $returnValue->msg="쿼리 실패";
+                return $returnValue;
+            }
+
+            $returnValue->succeed=true;  
+                
+            return $returnValue;
         }
 
         function getBoardList(){
@@ -138,6 +164,7 @@
             return $returnData;
 
         }
+
     }
 
     $model = new Model();

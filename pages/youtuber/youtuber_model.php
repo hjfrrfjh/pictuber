@@ -51,7 +51,7 @@
             $data->name=$result->name;
             $data->detail=$result->detail;
             $data->url=$result->url;
-
+            $data->img_url=$result->img_url;
             // sql2
             $statement = $this->conn->prepare($sql2);
             $statement->execute([$id]);
