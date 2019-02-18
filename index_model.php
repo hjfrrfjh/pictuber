@@ -4,7 +4,7 @@
 
         function getLastestPick(){
         
-            $statement = $this->conn->query("select * from view_latest_review LIMIT 4");
+            $statement = $this->conn->query("select * from view_latest_review ORDER by review_time desc LIMIT 4");
         
             $data = array();
         
