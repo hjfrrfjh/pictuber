@@ -52,6 +52,13 @@
     display:none;
 }
 
+.form__url-help{
+    color:var(--base-color);
+    margin-top:10px;
+    text-decoration: underline;
+}
+
+
 .form__autofill-area{
     text-align: center;
     position: relative;
@@ -138,4 +145,13 @@
     margin-top:50px;
     font-size:1.2rem;
     padding:20px 30px;
+}
+
+
+.help_img{
+    display: none;
+}
+
+.help_img--display{
+    display: block;
 }

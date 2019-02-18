@@ -26,8 +26,13 @@ if(empty($_SESSION['id'])){
             <div class="form__search-area card-base-deco">
                 <input class="form__url" type="text" name="url" id="form-url">
                 <a class="form__url-button button"><i class="icon-font icon-font--down"></i>정보 불러오기</a>
+                <a href="https://www.youtube.com" class="button button--light" target="blank">유투브로 이동</a>
                 <p class="form__url-desc">잘못된 URL입니다 주소를 확인해주세요!</p>
+                <div class="form__url-help"><a href="#" onclick="helpToggle(); return false"> HELP! 잘 모르겠어요 ㅠ</a></div>
             </div>
+            
+            <img src="img/add_help.jpg" class="help_img">
+            
             <label class="form__label"><strong>2.</strong> 설명을 수정/확인 합니다</label>
             <div class="form__autofill-area card-base-deco">
                 <div class="form__info-area">
@@ -72,6 +77,11 @@ if(empty($_SESSION['id'])){
     <?php include "../../footer.php" ?>
 
     <script>
+
+    function helpToggle(){
+        $(".help_img").toggleClass("help_img--display");
+    }
+
     $(function() {
         $(document).ready(function() {
             $(window).keydown(function(event) {
