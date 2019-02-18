@@ -4,7 +4,7 @@
 
         function getReviews(){
             $scale = 6;
-            $sql = "SELECT * FROM youtuber_review JOIN user ON youtuber_review.user_id=user.id WHERE youtuber_id=? ORDER BY review_time LIMIT $scale";
+            $sql = "SELECT * FROM youtuber_review JOIN user ON youtuber_review.user_id=user.id WHERE youtuber_id=? ORDER BY review_time desc LIMIT $scale";
             
             $id = !empty($_GET['id'])?$_GET['id']:"";
 
