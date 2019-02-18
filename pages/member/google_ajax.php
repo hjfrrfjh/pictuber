@@ -3,7 +3,7 @@ session_start();
 
 include 'member_model.php';
 
-$client_id = "215398164300-i7rs96pt3feecuat232n6e7qn74sk811.apps.googleusercontent.com";
+$client_id = $_SESSION['google_client_id'];
 $id_token=$_POST['idtoken'];
 session_unset();
 

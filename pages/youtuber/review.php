@@ -122,7 +122,7 @@
                     <button class="button" href="#" onclick="history.go(-1)">취소</button>
                 </div>
             </div>
-            <input type="hidden" name="youtuber_id" value="<?echo $id?>">
+            <input type="hidden" name="youtuber_id" value="<?php echo $id?>">
         </form>
     </div>
     <!-- ///////////////////////////////////////////// -->

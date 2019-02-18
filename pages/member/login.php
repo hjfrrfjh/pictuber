@@ -6,8 +6,17 @@
     <base href="../../">
     <?php include "../../head.php" ?>
     <link rel="stylesheet" href="pages/member/login.css">
+
+    <?php  
+        $file = '../../key.json';
+        $json = file_get_contents($file);
+        $json_data = json_decode($json, true);
+        $google_sign = $json_data['google_sign'];
+        $_SESSION['google_client_id'] = $google_sign;
+    ?>
+
     <meta name="google-signin-client_id"
-        content="215398164300-i7rs96pt3feecuat232n6e7qn74sk811.apps.googleusercontent.com">
+        content="<?php echo $google_sign ?>">
     <title>Picktuber</title>
 
 </head>

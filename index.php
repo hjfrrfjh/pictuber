@@ -17,6 +17,7 @@
     <?php 
     include "index_model.php";
     ?>
+
     <div class="top-banner">
         <ul class="slide">
             <li class="slide__item slide1">

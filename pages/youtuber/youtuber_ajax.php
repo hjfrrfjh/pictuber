@@ -16,7 +16,12 @@ foreach($result->data as $data){
     <div class="pick__item-body clearfix">
         <div class="pick__item-author"><?php echo $data->username ?></div>
         <p class="pick__item-text clamp">
-            <?php echo $data->detail ?>
+            <?php 
+                if(empty($data->detail)){
+                    $data->detail="등록된 코멘트가 없습니다";
+                }
+                echo $data->detail ;
+            ?>
             </p>
     </div>
     <div class="pick__item-point">

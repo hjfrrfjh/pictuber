@@ -59,7 +59,7 @@ BEGIN
     DECLARE i INT DEFAULT 1;
         
     WHILE i <= 1000 DO
-        INSERT INTO youtuber_review(youtuber_id, user_id, point1, point2, point3, point4, point5,detail,review_time)
+        REPLACE INTO youtuber_review(youtuber_id, user_id, point1, point2, point3, point4, point5,detail,review_time)
           VALUES(
            FLOOR(RAND() * 50)+1
           ,FLOOR(RAND() * 50)+1

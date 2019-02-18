@@ -13,7 +13,7 @@ include 'youtuber_model.php';
 $result = $model->insertReview();
 
 if($result->sucessed){
-    // 성공시 작업
+    header("location: youtuber.php?id=".$_POST['youtuber_id']);
 }else{
     print_r($result);
 }

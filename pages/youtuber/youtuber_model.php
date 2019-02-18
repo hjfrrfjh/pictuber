@@ -4,7 +4,7 @@
 
         function getReviews(){
             $scale = 6;
-            $sql = "SELECT * FROM youtuber_review JOIN user ON youtuber_review.user_id=user.id WHERE youtuber_id=? LIMIT $scale";
+            $sql = "SELECT * FROM youtuber_review JOIN user ON youtuber_review.user_id=user.id WHERE youtuber_id=? ORDER BY review_time LIMIT $scale";
             
             $id = !empty($_GET['id'])?$_GET['id']:"";
 
@@ -30,8 +30,98 @@
         }
 
         function insertReview(){
+            // 리뷰 추가, 있을경우 업데이트
+            $sql =" insert into youtuber_review (youtuber_id, user_id, point1, point2, point3, point4, point5, detail) 
+            values (:youtuber_id, :user_id, :point1,:point2,:point3,:point4,:point5,:detail) 
+            ON DUPLICATE KEY UPDATE point1=:point1, point2=:point2,point3=:point3,point4=:point4,point5=:point5, detail=:detail;";
+
+            // 유투버 평균값 계산 -> youtuber_sum 테이블업데이트
+            $sql2 = "UPDATE youtuber_sum, (
+                select floor(avg(point1)) as point1,
+                floor(avg(point2)) as point2,
+                floor(avg(point3)) as point3,
+                floor(avg(point4)) as point4,
+                floor(avg(point5)) as point5
+                  from youtuber_review where youtuber_id=:youtuber_id group by youtuber_id
+                ) as data 
+                SET 
+                youtuber_sum.point1=data.point1, 
+                youtuber_sum.point2=data.point2, 
+                youtuber_sum.point3=data.point3, 
+                youtuber_sum.point4=data.point4, 
+                youtuber_sum.point5=data.point5
+                where youtuber_sum.youtuber_id=:youtuber_id";
+
+            $user_id = $_SESSION['id'];
+            $youtuber_id = $_POST['youtuber_id'];
+            $point1 = $_POST['point1'];
+            $point2 = $_POST['point2'];
+            $point3 = $_POST['point3'];
+            $point4 = $_POST['point4'];
+            $point5 = $_POST['point5'];
+            $detail = $_POST['detail'];
+
             
+            $returnValue = new StdClass();
+
+            
+            // 400점 넘었을때
+            $sum = $point1+$point2+$point3+$point4+$point5;
+            if($sum>400){
+                $this->conn->rollBack();
+                $returnValue->msg="리뷰 점수가 400점이 넘었습니다.($sum)";
+                $returnValue->sucessed=false;
+                return $returnValue;
+            }
+
+
+            //트랜잭션 시작
+            $this->conn->beginTransaction();
+
+            $statement = $this->conn->prepare($sql);
+            $result = $statement->execute([
+                ':youtuber_id'=>$youtuber_id,
+                ':user_id'=>$user_id,
+                ':point1'=>$point1,
+                ':point2'=>$point2,
+                ':point3'=>$point3,
+                ':point4'=>$point4,
+                ':point5'=>$point5,
+                ':detail'=>$detail
+                ]);
+                
+            //쿼리 실패시 롤백
+            if(!$result){
+                $this->conn->rollBack();
+                $returnValue->msg="youtubr_review 테이블 업데이트 실패";
+                $returnValue->sucessed=false;
+                return $returnValue;
+            }
+
+            
+            $statement = $this->conn->prepare($sql2);
+            $result = $statement->execute([
+                ':youtuber_id'=>$youtuber_id
+            ]);
+            
+            //쿼리 실패시 롤백
+            if(!$result){
+                $this->conn->rollBack();
+                $returnValue->msg="youtubr_sum 테이블 업데이트 실패";
+                $returnValue->sucessed=false;
+                return $returnValue;
+            }
+
+            //커밋
+            $this->conn->commit();
+
+            $returnValue = new stdClass();
+            $returnValue->sucessed = true;
+            
+            return $returnValue;
         }
+
+
         function getYoutuberInfo(){
             $sql1 = "SELECT * FROM youtuber WHERE id=?";
             $sql2 = "SELECT * FROM youtuber_info WHERE youtuber_id=?";

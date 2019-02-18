@@ -60,7 +60,7 @@
                 <?php 
                     if(!empty($_SESSION['id'])){
                 ?>
-                <a href="#" class="inside__recommend-button button button--point">
+                <a href="#" class="inside__recommend-button button button--point" onclick="return false">
                     <i class="icon-font icon-font--face1"></i><span>추천합니다!</span>
                 </a>
                 <?php } ?>
@@ -77,7 +77,7 @@
                 <div class="comment-input">
                     <label class="comment-input__label">COMMENT</label>
                     <textarea class="comment-input__body"></textarea>
-                    <input href="#" class="comment-input__button button button--light" value="남기기">
+                    <a href="#" class="comment-input__button button button--light"onclick="return false"> 남기기 </a>
                 </div>
                 <?php } ?>
                 <ul class="comment">

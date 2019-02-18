@@ -52,7 +52,7 @@
                         <div class="circle-component__value"></div>
                     </div>
                     <div class="circle-component__title">
-                        유머
+                        정보
                     </div>
                 </div>
                 <div class="circle-component clearfix">
@@ -60,7 +60,7 @@
                         <div class="circle-component__value"></div>
                     </div>
                     <div class="circle-component__title">
-                        소통
+                        유머
                     </div>
                 </div>
                 <div class="circle-component clearfix">
@@ -84,7 +84,7 @@
                         <div class="circle-component__value"></div>
                     </div>
                     <div class="circle-component__title">
-                        정보
+                        소통
                     </div>
                 </div>
             </div><div class="profile__bottom">
@@ -102,8 +102,8 @@
                     <p class="profile__detail"><?php echo $data->detail ?></p>
                 </div>
                 <div class="profile__button-area">
-                    <a href="pages/youtuber/review.php" class="profile__button button button--point">평점 주기</a>
-                    <a href="#" class="profile__button button">정보 수정 요청</a>
+                    <a href="pages/youtuber/review.php?id=<?php echo $id?>" class="profile__button button button--point">평점 주기</a>
+                    <a href="#" class="profile__button button" onclick="return false">정보 수정 요청</a>
                 </div>
             </div>
         </div>
