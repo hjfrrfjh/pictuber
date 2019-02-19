@@ -72,13 +72,16 @@
 
             <div class="inside__comment-area">
                 <?php
+                
                 if(!empty($_SESSION['id'])){
                 ?>
-                <div class="comment-input">
+                <form class="comment-input" action="pages/talk/comment.php" method="POST">
                     <label class="comment-input__label">COMMENT</label>
-                    <textarea class="comment-input__body"></textarea>
-                    <a href="#" class="comment-input__button button button--light"onclick="return false"> 남기기 </a>
-                </div>
+                    <textarea class="comment-input__body" name="comment"></textarea>
+                    <input type="hidden" name="board_id" value="<?php echo $id ?>">
+                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id'] ?>">
+                    <input type="submit" class="comment-input__button button button--light" value="남기기">
+                </form>
                 <?php } ?>
                 <ul class="comment">
                     <?php

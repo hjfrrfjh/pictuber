@@ -37,6 +37,26 @@
             $result = $this->conn->prepare($sql)->execute([$_GET['id']]);
             return $result;
         }
+        
+        function insertComment(){
+            $sql = "INSERT INTO board_talk_comment (board_talk_id, comment, user_id, write_time) values (:board_id, :comment, :user_id, now())";
+            
+            $board_id = $_POST['board_id'];
+            $comment = $_POST['comment'];
+            $user_id = $_POST['user_id'];
+
+            if(empty($board_id)||empty($comment)||empty($user_id)){
+                return false;
+            }
+
+            $result = $this->conn->prepare($sql)->execute([
+                ":board_id"=>$board_id,
+                ":comment"=>$comment,
+                ":user_id"=>$user_id
+            ]);
+
+            return $result;
+        }
 
         function insertBoard(){
             $sql = "insert into board_talk(user_id, subject, content) values(?, ?, ?)";
