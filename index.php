@@ -40,13 +40,10 @@
     <div class="wrap clearfix">
         <div class="column1">
             <section class="recent-pick clearfix">
-                <h2 class="recent-pick__title"><i class="icon-font icon-font--face2"></i>따끈따끈한 PICK!</h2>
-                <!-- PHP출력  -->
-                <?php 
+                <h2 class="recent-pick__title"><i class="icon-font icon-font--face2"></i>따끈따끈한 PICK!</h2><?php 
                 $results = $model->getLastestPick();
                 foreach($results as $result){
-                ?>
-                <article class="pick-card card-base-deco">
+                ?><article class="pick-card card-base-deco">
                     <div class="pick-card__body">
                         <div class="pick-card__title-area">
                             <h3 class="pick-card__title">
@@ -88,10 +85,7 @@
                             <a href="<?php echo $result->url ?>" target="blank" class="button button--light">채널</a>
                         </div>
                     </div>
-                    </article>
-                    <?php } ?>
-                    <!--  -->
-            </section>
+                    </article><?php } ?></section>
 
         </div>
         <div class="column2">
