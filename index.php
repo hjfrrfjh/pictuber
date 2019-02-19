@@ -83,7 +83,6 @@
                             </div>
                         </div>
                         <p class="pick-card__text"><?php echo  $result->detail ?></p>
-                        
                         <div class="pick-card__button-area">
                             <a href="pages/youtuber/youtuber.php?id=<?php echo $result->youtuber_id ?>" class="button button--light">프로필</a>
                             <a href="<?php echo $result->url ?>" target="blank" class="button button--light">채널</a>
@@ -121,7 +120,7 @@
             <section class="youtuber-board">
                 <h2 class="youtuber-board__title"><i class="icon-font icon-font--face1"></i>유투버 공간</h2>
                 <div style="text-align:center">
-                    <a href="#" class="button button--point" style="letter-spacing: -1px;">게시판 신청하기</a>
+                    <a href="#" class="button" style="letter-spacing: -1px;">게시판 신청하기</a>
                 </div>
                 <div style="line-height:200%;padding:0 20px;">
                 <br>특정 유투버를 주제로한 게시판을 만들어드리고 있습니다

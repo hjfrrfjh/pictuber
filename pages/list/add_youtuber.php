@@ -84,12 +84,18 @@ if(empty($_SESSION['id'])){
 
     $(function() {
         $(document).ready(function() {
-            $(window).keydown(function(event) {
+            $("#form-url").keydown(function(event) {
                 if (event.keyCode == 13) {
                     event.preventDefault();
                     return true;
                 }
             });
+            // $(window).keydown(function(event) {
+            //     if (event.keyCode == 13) {
+            //         event.preventDefault();
+            //         return true;
+            //     }
+            // });
         });
 
 
@@ -124,6 +130,7 @@ if(empty($_SESSION['id'])){
         $('.tag-input').keydown(function(event) {
             if (event.keyCode == 13) {
                 $('.tag-add-button').click();
+                event.preventDefault();
             }
         });
 
